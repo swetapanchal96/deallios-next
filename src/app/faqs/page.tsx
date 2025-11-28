@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Head from 'next/head';
-import "./faqs.css";
+import React from "react";
+import "./faqs.css"; // <-- Update path based on your folder
 
 const faqData = [
   {
@@ -27,7 +26,7 @@ const faqData = [
     id: 4,
     question: "I own a business. Can I list my deals on Deallios?",
     answer:
-      "Yes! Any business, large or small, can join Deallios and publish their offers. We're open to all sectors.",
+      "Yes! Any business, large or small, can join Deallios and publish their offers. We’re open to all sectors.",
   },
   {
     id: 5,
@@ -39,60 +38,45 @@ const faqData = [
     id: 6,
     question: "Is there an Android or iOS version of Deallios?",
     answer:
-      "Not yet, but it's coming soon! The app will be available on both platforms in the near future. Stay connected with us for launch updates and exclusive early access.",
+      "Not yet, but it’s coming soon! The app will be available on both platforms in the near future. Stay connected with us for launch updates and exclusive early access.",
   },
 ];
 
 function Faqs() {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleAccordion = (index:any) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <>
-      <Head>
-        <title>FAQs - Frequently Asked Questions | Deallios</title>
-        <meta 
-          name="description" 
-          content="Find answers to common questions about using Deallios, QR codes, deals, business listings, and mobile apps." 
-        />
-        <meta property="og:title" content="FAQs - Deallios" />
-        <meta property="og:description" content="Have Questions? We've Got Answers." />
-        <meta name="robots" content="index, follow" />
-      </Head>
+    <div className="container py-5">
+      <h1 style={{ textAlign: "left" }}>Frequently Asked Questions (FAQs)</h1>
+      <h5 style={{ padding: "20px 0px" }}>
+        Have Questions? We Have Got Answers.
+      </h5>
 
-      <div className="container py-5">
-        <h1 style={{ textAlign: "left" }}>Frequently Asked Questions (FAQs)</h1>
-        <h5 style={{ padding: "20px 0px" }}>
-          Have Questions? We Have Got Answers.
-        </h5>
-
-        <div className="faq-accordion">
-          {faqData.map((faq, index) => (
-            <div key={faq.id} className="accordion-item mb-2">
-              <div 
-                className="accordion-header"
-                onClick={() => toggleAccordion(index)}
+      <div className="accordion accordion-flush" id="accordionFlushExample">
+        {faqData.map((faq, index) => (
+          <div key={faq.id} className="accordion-item mb-2">
+            <h2 className="accordion-header" id={`flush-heading${faq.id}`}>
+              <button
+                className="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target={`#flush-collapse${faq.id}`}
+                aria-expanded="false"
+                aria-controls={`flush-collapse${faq.id}`}
               >
-                <button
-                  className={`accordion-button ${openIndex === index ? '' : 'collapsed'}`}
-                  type="button"
-                >
-                  {index + 1}. {faq.question}
-                </button>
-              </div>
-              <div 
-                className={`accordion-collapse ${openIndex === index ? 'show' : ''}`}
-              >
-                <div className="accordion-body">{faq.answer}</div>
-              </div>
+                {index + 1}. {faq.question}
+              </button>
+            </h2>
+            <div
+              id={`flush-collapse${faq.id}`}
+              className="accordion-collapse collapse"
+              aria-labelledby={`flush-heading${faq.id}`}
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div className="accordion-body">{faq.answer}</div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
 

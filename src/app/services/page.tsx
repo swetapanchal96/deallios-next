@@ -8,6 +8,7 @@ import "./services.css";
 import servicesIllustration from "@/app/assets/aboutus/service.webp";
 import servicesIllustration1 from "@/app/assets/aboutus/what_we_offer.webp";
 import bgImage from "../../../public/assets/deal-banner.jpg";
+import ScrollToTop from "../components/scrollToTop";
 
 export default function Services() {
   const services = [
@@ -35,6 +36,7 @@ export default function Services() {
 
   return (
     <div>
+      <ScrollToTop />
       {/* Section 1 */}
       <div className="service-container container pt-5">
         <div className="service-column text-column">

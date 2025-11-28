@@ -10,6 +10,7 @@ import { UserProfileContext } from "../components/UserProfileContext";
 import Image from "next/image";
 import lightLogo from '@/app/assets/logowhite.png'
 import blinking from '@/app/assets/bg-imgs.svg'
+import ScrollToTop from "./scrollToTop";
 
 const Header = () => {
     const { avatar } = useContext(UserProfileContext);
@@ -307,6 +308,7 @@ const Header = () => {
 
     return (
         <>
+        <ScrollToTop/>
             <section className="top-header-bar">
                 <div
                     className="d-flex align-items-center justify-content-between flex-wrap px-3 w-100"
@@ -325,7 +327,7 @@ const Header = () => {
                                 fontWeight: "bold",
                                 border: "none",
                             }}
-                            onClick={() => router.push("/reseller_login")}
+                            onClick={() => router.push("reseller/reseller_login/")}
                         >
                             <i className="fa fa-handshake"></i>Deal Partner Login
                         </button>

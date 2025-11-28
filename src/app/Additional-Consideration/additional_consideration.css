@@ -1,0 +1,95 @@
+/* In your CSS */
+.riple-wrapper {
+  /* Force the wrapper to stretch the full width of its parent */
+  width: 100%;
+  
+  /* Center its child horizontally and vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* If you need a fixed height to see vertical centering, you can set one: */
+  /* height: 200px; */
+}
+
+/* Ensure Riple itself can shrink/grow inside flexbox */
+.riple-wrapper > * {
+  /* Most React components render inline or inline-block—make sure it can center */
+  display: inline-block;
+}
+
+.terms-content ul {
+    margin-bottom: 0;
+}
+
+.additional-consideration-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  align-items: center;
+}
+
+.additional-consideration-column {
+  flex: 1 1 300px;
+  box-sizing: border-box;
+}
+
+.additional-consideration-container .text-column {
+  max-width: 600px;
+}
+
+.additional-consideration-container .image-column img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+.additional-consideration-title {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: #2a2247;
+}
+
+.additional-consideration-description {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #000;
+  padding-top: 20px;
+}
+
+/* Tablet (>=768px and <1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .additional-consideration-container {
+    gap: 30px;
+    padding: 35px;
+  }
+  .additional-consideration-title { font-size: 20px; }
+  .additional-consideration-description { font-size: 12px; }
+  .additional-consideration-container .image-column img { height: 300px; }
+}
+
+/* Mobile (>=576px and <768px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .additional-consideration-container {
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px;
+  }
+  .additional-consideration-title { font-size: 1.75rem; }
+  .additional-consideration-description { font-size: 0.95rem; }
+  .additional-consideration-container .image-column img { height: 250px; }
+}
+
+/* Small Mobile (<576px) */
+@media (max-width: 575px) {
+  .additional-consideration-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  .additional-consideration-title { font-size: 1.5rem; }
+  .additional-consideration-description { font-size: 0.9rem; }
+  .additional-consideration-container .image-column img { height: auto; }
+}

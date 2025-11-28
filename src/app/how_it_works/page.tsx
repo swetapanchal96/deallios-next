@@ -110,7 +110,7 @@ export default function HowItWorks() {
                   <br />
                   <span className="tick-icon fa fa-check" /> Enjoy your discounted product or service right away
                 </p>
-                <p className="mb-0">No printing, no passwords just a scan and you're done.</p>
+                {/* <p className="mb-0">No printing, no passwords just a scan and you're done.</p> */}
               </div>
             </div>
           </div>
@@ -122,8 +122,8 @@ export default function HowItWorks() {
         <div className="section-column text-column">
           <h1>Why It Works</h1>
           <p className="section-description">
-            This system ensures fast, secure, and convenient access to deals without unnecessary steps.
-            <strong> Saving money has never been easier.</strong>
+            This system ensures fast, secure, and convenient access to deals without unnecessary steps or confusion. From discovery to redemption, we keep it clean and efficient so you can focus on what really matters:
+            <strong>saving money and enjoying great services.</strong>
           </p>
         </div>
         <div className="image-column">

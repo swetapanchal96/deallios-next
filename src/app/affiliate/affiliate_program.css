@@ -1,0 +1,81 @@
+.card-text {
+  font-size: 16px;
+  color: #2a2247;
+}
+.vertical-tabs-wrapper {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-height: 240px;
+  background-color: #fff;
+  margin-bottom: 40px;
+}
+
+.tab-buttons {
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  background-color: #f1f1f1;
+  border-right: 1px solid #ccc;
+  color: black;
+}
+
+.tab-buttons button {
+  padding: 18px 20px;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+
+  transition: background-color 0.3s ease;
+}
+
+.tab-buttons button:hover {
+  background-color: #ddd;
+}
+
+.tab-buttons button.active {
+  background-color: #ccc;
+  font-weight: bold;
+}
+
+.tab-content {
+  flex-grow: 1;
+  padding: 25px;
+  font-size: 16px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.stay-connected-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.stay-connected-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.stay-connected-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .vertical-tabs-wrapper {
+    display: block;
+  }
+}

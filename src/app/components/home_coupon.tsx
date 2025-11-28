@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { Skeleton } from "@mui/material";
 import { useRouter } from "next/navigation";
 import "./CouponsSlider.css";
+import Link from "next/link";
 
 const sliderSettings = {
   dots: false,
@@ -109,12 +110,12 @@ const CouponsSlider = () => {
       >
         <div className="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 className="h5 mb-0 text-gray-900">🔥 Trending Coupons</h1>
-          <a
+          <Link
             className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-white"
-            href="/trandingcoupns"
+            href="/trendingcoupons"
           >
             <i className="fas fa-eye fa-sm text-white-50"></i> Trending View
-          </a>
+          </Link>
         </div>
 
         <div className="slider-controls">
