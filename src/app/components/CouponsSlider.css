@@ -1,0 +1,393 @@
+.coupon-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 26px;
+  color: #333;
+  font-weight: bold;
+}
+
+.view-all {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.view-all:hover {
+  color: #0056b3;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skeleton-card {
+  width: 100%;
+  max-width: 300px;
+}
+
+.coupon-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0px 10px; */
+  transition: 0.3s;
+  position: relative;
+}
+
+.coupon-content {
+  /* background: rgba(255, 255, 255, 0.2); */
+  border-radius: 8px;
+  /* backdrop-filter: blur(10px); */
+  /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+
+  text-align: center;
+  margin: 0px 10px;
+  background: white;
+  object-fit: cover;
+}
+
+.coupon-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  position: relative;
+}
+
+/* .coupon-info {
+  margin-top: 15px;
+} */
+
+.coupon-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.coupon-expiry {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 5px 0;
+  background: #2a2247;
+  width: max-content;
+  padding: 7px;
+  border-radius: 6px;
+  position: absolute;
+  top: 22px;
+  right: 27px;
+}
+
+.grab-deal-btn {
+  background: #2a2247;
+  width: 100%;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.grab-deal-btn:hover {
+  background: #0056b3;
+}
+
+.slick-slider.slick-initialized {
+  padding: 20px;
+  border-radius: 6px;
+  background: transparent !important;
+}
+
+.slick-slider.slick-initialized {
+  padding: 0px !important;
+  border-radius: 6px;
+  background: white;
+}
+
+.css-1t8kkt0.Mui-selected {
+  color: rgb(255, 255, 255);
+  background-color: rgb(40 36 69);
+}
+.slick-list {
+  padding-right: 100px !important; /* allows the right side of next slide to peek */
+  padding-left: 0px !important; /* ensures left side aligns properly */
+}
+
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.h-250 {
+  height: 250px;
+  /* overflow: ; */
+  position: relative;
+}
+
+.h-250 iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+.h-250:hover iframe {
+  pointer-events: auto;
+}
+
+/* ======================== */
+
+.slider-controls {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.prev-btn,
+.next-btn {
+  background: #282445;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.prev-btn {
+  left: -28px;
+  top: 80px;
+}
+
+.next-btn {
+  right: -31px;
+  top: 80px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: #555;
+}
+
+.date-expiry {
+  border: 1px solid red;
+}
+
+.date-expiry-n {
+  position: absolute;
+  top: 19px;
+  border: 1px solid;
+  right: 0px;
+  /* padding: 15px; */
+  width: 100px;
+  background: white;
+  z-index: 9999;
+}
+
+.month {
+  background: #3e3964;
+  color: white;
+  font-size: 14px;
+}
+
+.expiry-day {
+  font-size: 21px;
+  font-weight: bolder;
+  font-family: sans-serif;
+}
+
+.coupon-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+  position: relative;
+}
+
+.coupon-info {
+  margin-top: 10px;
+}
+
+/* Coupon Title */
+.coupon-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Expiry Date Section */
+.date-expiry-n {
+  background: #ffffff;
+  color: #000000;
+  width: 65px;
+  height: 80px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 2px;
+  right: 13px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.date-expiry-n .month {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #2a2247;
+  width: 100%;
+  text-align: center;
+  padding: 4px 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.date-expiry-n .expiry-day {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.date-expiry-n .expiry-year {
+  font-size: 12px;
+  margin-top: -2px;
+}
+
+/* 26-03-2025 */
+
+.calendar::before,
+.calendar::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  background: #ddd;
+  border-radius: 50%;
+}
+
+.calendar::before {
+  left: 20px;
+}
+
+.calendar::after {
+  right: 20px;
+}
+
+.calendar {
+  background: white;
+  width: 70px;
+  text-align: center;
+  border-radius: 0px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  /* display: flex; */
+  border-radius: 0px 0px 8px 8px;
+}
+
+.calendar .header {
+  background: #ff5733;
+  color: white;
+  background: #2a2247;
+  padding: 5px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  justify-content: center;
+}
+
+.calendar .body {
+  padding: 0px 10px;
+  background: #fff;
+}
+
+.calendar .date {
+  font-size: 14px;
+  font-weight: bold;
+  color: #2a2247;
+  line-height: 1;
+  margin-bottom: 3px;
+  margin-top: 5px;
+}
+
+.calendar .year {
+  font-size: 14px;
+  color: #2a2247;
+  margin-top: 3px;
+}
+
+.calendar:after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  position: absolute;
+  top: -35px;
+  left: 50px;
+  background-color: #df3e5d;
+}
+
+@media only screen and (max-width: 480px) {
+  .prev-btn {
+    left: 0px;
+    top: 85px;
+  }
+
+  .next-btn {
+    right: -4px;
+    top: 85px;
+  }
+}
+
+/* Add spacing between slides */
+.coupon-section .slick-slide {
+  padding: 0 10px;
+  height: 150px;
+  overflow: hidden; /* Horizontal margin between slides */
+}
+
+/* Remove extra padding from Slick’s track to prevent overflow */
+.coupon-section .slick-list {
+  margin: 0 -10px; /* Negative padding to compensate the slide padding */
+}
+.coupon-section .slick-slide div div {
+  height: 150px;
+  overflow: hidden;
+  object-fit: cover;
+}
