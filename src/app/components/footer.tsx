@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               <h6 className="text-gray-900 mb-0">Work with Us</h6>
               <ul>
                 <li>
-                  <Link href="/reseller">Join Deallios&apos;s Marketplace</Link>
+                  <Link href="/reseller">Join Deallios's Marketplace</Link>
                 </li>
                 <li>
                   <Link href="/affiliate">Affiliate Program</Link>

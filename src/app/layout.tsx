@@ -7,6 +7,9 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ScrollToTop from "./components/scrollToTop";
+import HideUserLayout from "./HideUserLayout";
+
 
 
 
@@ -33,29 +36,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      />
-  <title>Deallios</title>
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com"  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dosis:wght@200..800&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Playwrite+AR&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></link>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        />
+        <title>Deallios</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dosis:wght@200..800&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Playwrite+AR&display=swap"
+          rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></link>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <CustomAuthProvider>
           <UserProfileProvider>
-            <Header />
-        {children}
-        <Footer />
+            {/* <Header />
+            <ScrollToTop /> */}
+            <HideUserLayout>{children}</HideUserLayout>
+
+            {/* <Footer /> */}
           </UserProfileProvider>
         </CustomAuthProvider>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </body>
     </html>
   );

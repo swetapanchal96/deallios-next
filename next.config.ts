@@ -12,7 +12,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  trailingSlash: true, // IMPORTANT for Apache to serve /…/index.html
+  trailingSlash: true, 
  
   images: { unoptimized: true },
   eslint: { ignoreDuringBuilds: true },
