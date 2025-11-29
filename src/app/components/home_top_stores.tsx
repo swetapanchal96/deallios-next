@@ -131,9 +131,9 @@ function TopStores() {
     const a =
       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
       Math.cos(toRad(lat1)) *
-        Math.cos(toRad(lat2)) *
-        Math.sin(dLon / 2) *
-        Math.sin(dLon / 2);
+      Math.cos(toRad(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distanceKm = R * c;
 
@@ -172,11 +172,11 @@ function TopStores() {
               const cardDistance =
                 userLatLong && store.vendor?.latitude && store.vendor?.longitude
                   ? calculateDistance(
-                      userLatLong.lat,
-                      userLatLong.long,
-                      store.vendor.latitude,
-                      store.vendor.longitude
-                    )
+                    userLatLong.lat,
+                    userLatLong.long,
+                    store.vendor.latitude,
+                    store.vendor.longitude
+                  )
                   : null;
 
               const regularPrice = store.options[0]?.regular_price || null;
@@ -267,12 +267,13 @@ function TopStores() {
                             <h6>
                               <button
                                 type="button"
-                                className="fw-bold title-txt btn btn-link p-0 border-0 text-start"
+                                className="fw-bold title-txt btn btn-link p-0 border-0 text-start "
                                 title={store.deals_slug}
                                 onClick={() => router.push(`/deal/${store.GUID}`)}
                                 style={{
                                   textTransform: "capitalize",
                                   textDecoration: "none",
+                                  color: "black",
                                 }}
                               >
                                 {store.main_title}
