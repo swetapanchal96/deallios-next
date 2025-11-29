@@ -3410,8 +3410,9 @@ h6 {
 }
 
 .bg-register {
-  height: 680px;
-  object-fit: cover;
+  height: 680px !important;
+  width: 600px;
+  object-fit: cover !important;
 }
 
 .review-btnss {
