@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import Image from "next/image";
 import loginImg from "@/app/assets/reseller/register_bg.jpg"
+import { apiUrl } from "@/config";
 
 const ResellerLogin: React.FC = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -40,7 +41,7 @@ const ResellerLogin: React.FC = () => {
                 : { vendormobile: loginInput, vendorpassword: password };
 
             const { data } = await axios.post(
-                "https://getdemo.in/pricecut/api/login",
+                `${apiUrl}/login`,
                 payload
             );
 

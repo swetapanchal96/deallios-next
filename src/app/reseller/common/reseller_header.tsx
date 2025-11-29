@@ -15,11 +15,11 @@ import ListItemText from "@mui/material/ListItemText";
 import Link from "next/link";
 
 const navItems = [
-  { label: "Home", link: "/reseller" },
+  { label: "Home", link: "/reseller/reseller_register" },
   { label: "About", link: "#" },
   { label: "Contact", link: "#" },
   { label: "Login", link: "/reseller_login" },
-  { label: "Register", link: "/reseller" },
+  { label: "Register", link: "/reseller/reseller_register" },
 ];
 
 const Header: React.FC = () => {
