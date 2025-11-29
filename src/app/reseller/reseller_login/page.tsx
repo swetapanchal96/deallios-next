@@ -59,7 +59,7 @@ const ResellerLogin: React.FC = () => {
                     localStorage.setItem("token", authorisation.token);
                 }
 
-                router.push("/reseller_dashboard");
+                router.push("/reseller/dashboard/reseller_dashboard");
             } else {
                 setError(data.message || "Login failed.");
             }
@@ -132,11 +132,11 @@ const ResellerLogin: React.FC = () => {
 
                                 <div className="text-center mt-2">
                                     <p className="mb-0">
-                                        <Link href="/reseller_forgot">Forgot Password?</Link>
+                                        <Link href="/reseller/reseller_forgot">Forgot Password?</Link>
                                     </p>
                                     <p>
                                         Don’t have an account?{" "}
-                                        <Link href="/reseller">Register here</Link>
+                                        <Link href="/reseller/reseller_register">Register here</Link>
                                     </p>
                                 </div>
                             </form>

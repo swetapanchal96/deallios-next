@@ -8,13 +8,14 @@ import ScrollToTop from "./components/scrollToTop";
 export default function HideUserLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isReseller = pathname.startsWith("/reseller");
+  const isDashboard = pathname.startsWith("/reseller/dashboard");
 
   return (
     <>
-      {!isReseller && <Header />}
+      {!isReseller && !isDashboard && <Header />}
       <ScrollToTop />
       {children}
-      {!isReseller && <Footer />}
+      {!isReseller && !isDashboard && <Footer />}
     </>
   );
 }

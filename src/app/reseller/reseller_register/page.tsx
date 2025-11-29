@@ -8,6 +8,7 @@ import MuiAlert from "@mui/material/Alert";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Image from "next/image";
 import loginImg from "@/app/assets/reseller/register_bg.jpg"
+import { apiUrl } from "@/config";
 
 interface FormData {
   vendorname: string;
@@ -77,7 +78,7 @@ const Reseller: React.FC = () => {
   useEffect(() => {
     // Fetch state list on component mount
     axios
-      .get("https://getdemo.in/pricecut/api/states")
+      .get(`${apiUrl}/states`)
       .then((response) => {
         if (response.data.success) {
           setStates(response.data.data);
@@ -107,7 +108,7 @@ const Reseller: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    axios.get("https://getdemo.in/pricecut/api/categories").then((response) => {
+    axios.get(`${apiUrl}/categories`).then((response) => {
       if (response.data.data) {
         setCatagories(response.data.data);
       } else {
@@ -125,7 +126,7 @@ const Reseller: React.FC = () => {
     // Fetch cities when state is selected
     if (name === "vendorstate") {
       axios
-        .post("https://getdemo.in/pricecut/api/city", { stateid: value })
+        .post(`${apiUrl}/city`, { stateid: value })
         .then((response) => {
           if (response.data.success) {
             if (response.data.data.length === 0) {
@@ -199,7 +200,7 @@ const Reseller: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "https://getdemo.in/pricecut/api/new-registration",
+        `${apiUrl}/new-registration`,
         { ...formData, vendoremail: email }
       );
 
@@ -241,7 +242,7 @@ const Reseller: React.FC = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://getdemo.in/pricecut/api/verifyOTP",
+        `${apiUrl}/verifyOTP`,
         {
           vendoremail: email,
           otp,

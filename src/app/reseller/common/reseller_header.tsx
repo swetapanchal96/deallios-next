@@ -18,7 +18,7 @@ const navItems = [
   { label: "Home", link: "/reseller/reseller_register" },
   { label: "About", link: "#" },
   { label: "Contact", link: "#" },
-  { label: "Login", link: "/reseller_login" },
+  { label: "Login", link: "/reseller/reseller_login" },
   { label: "Register", link: "/reseller/reseller_register" },
 ];
 
@@ -38,10 +38,10 @@ const Header: React.FC = () => {
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <Link href={item.link} passHref legacyBehavior>
-                <a style={{ width: "100%", display: "block", color: "inherit", textDecoration: "none" }}>
+              <Link href={item.link} >
+                {/* <a style={{ width: "100%", display: "block", color: "inherit", textDecoration: "none" }}> */}
                   <ListItemText primary={item.label} />
-                </a>
+                {/* </a> */}
               </Link>
             </ListItemButton>
           </ListItem>
@@ -81,8 +81,8 @@ const Header: React.FC = () => {
                 {/* Desktop Navigation */}
                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   {navItems.map((item) => (
-                    <Link key={item.label} href={item.link} passHref legacyBehavior>
-                      <Button sx={{ color: "#fff" }} component="a">
+                    <Link key={item.label} href={item.link} >
+                      <Button sx={{ color: "#fff" }} >
                         {item.label}
                       </Button>
                     </Link>
