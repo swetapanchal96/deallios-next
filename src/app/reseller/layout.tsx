@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import ResellerHeader from "./common/reseller_header";
 import ResellerFooter from "./common/reseller_footer";
+import { AuthProvider } from "./AuthContext";
 // import DashboardLayout from "./Dashboard_Layout";
 
 interface ResellerLayoutProps {
@@ -24,6 +25,7 @@ const ResellerLayout: React.FC<ResellerLayoutProps> = ({ children }) => {
     pathname.startsWith("/manage_promocode");
 
   return (
+      <AuthProvider>
     <div>
       {!isSpecialPage && <ResellerHeader />}
 
@@ -41,6 +43,7 @@ const ResellerLayout: React.FC<ResellerLayoutProps> = ({ children }) => {
 
       {!isSpecialPage && <ResellerFooter />}
     </div>
+    </AuthProvider>
   );
 };
 
