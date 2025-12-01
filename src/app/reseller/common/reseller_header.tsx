@@ -82,7 +82,7 @@ const Header: React.FC = () => {
                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   {navItems.map((item) => (
                     <Link key={item.label} href={item.link} >
-                      <Button sx={{ color: "#fff" }} >
+                      <Button sx={{ color: "#fff" }} style={{color:"#2a2247"}}>
                         {item.label}
                       </Button>
                     </Link>
