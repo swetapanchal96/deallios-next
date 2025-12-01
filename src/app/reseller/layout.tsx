@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import ResellerHeader from "./common/reseller_header";
 import ResellerFooter from "./common/reseller_footer";
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider } from "@/app/reseller/AuthContext";
 // import DashboardLayout from "./Dashboard_Layout";
 
 interface ResellerLayoutProps {
@@ -11,38 +11,26 @@ interface ResellerLayoutProps {
 }
 
 const ResellerLayout: React.FC<ResellerLayoutProps> = ({ children }) => {
-  const router = useRouter();
+  // const router = useRouter();
   const pathname = usePathname();
 
   // Check if current path matches any of the special routes
-  const isSpecialPage =
-    pathname.startsWith("/dashboard") ||
-    pathname.startsWith("/reseller_dashboard") ||
-    pathname.startsWith("/reseller_add_deal") ||
-    pathname.startsWith("/manage_deal") ||
-    pathname.startsWith("/reseller_profile") ||
-    pathname.startsWith("/add_promocode") ||
-    pathname.startsWith("/manage_promocode");
+  const isDashboardArea =
+    pathname.startsWith("/reseller/dashboard/reseller_dashboard") ||
+    pathname.startsWith("/reseller/dashboard/add_promocode") ||
+    pathname.startsWith("/reseller/dashboard/manage_promocode") ||
+    pathname.startsWith("/reseller/dashboard/manage_deal")
 
   return (
-      <AuthProvider>
-    <div>
-      {!isSpecialPage && <ResellerHeader />}
+    <AuthProvider>
+      <div>
+        {/* Show reseller header/footer ONLY on login/register pages, NOT on dashboard area */}
+        {!isDashboardArea && <ResellerHeader />}
 
-      <div style={{ display: "flex" }}>
-        {/* Render Sidebar only on special pages */}
-        {/* {isSpecialPage && <DashboardLayout />} */}
+        <main style={{ flex: 1 }}>{children}</main>
 
-        {/* Main Content - render children */}
-        {!isSpecialPage && (
-          <main style={{ flex: 1 }}>
-            {children}
-          </main>
-        )}
+        {!isDashboardArea && <ResellerFooter />}
       </div>
-
-      {!isSpecialPage && <ResellerFooter />}
-    </div>
     </AuthProvider>
   );
 };

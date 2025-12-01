@@ -9,7 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/app/reseller/AuthContext"; // adjust path
 import TopMenu from "@/app/reseller/common/ResellerDashboardTopbar";
-// import ContentSection from "@/app/reseller/common/RessellerContentSection";
+import ContentSection from "@/app/reseller/common/RessellerContentSection";
 import FooterSection from "@/app/reseller/common/RessellerDashboardFooter";
 import { apiUrl } from "@/config";
 import "@/app/reseller/dashboard/Sidebar.css";
@@ -70,7 +70,7 @@ const Dashboard: React.FC = () => {
         toast.success(response.data.message || "Successfully logged out.");
 
         setTimeout(() => {
-          router.push("/reseller_login");
+          router.push("/reseller/reseller_login");
         }, 200);
       } else {
         toast.error(response.data.message || "Logout failed.");
@@ -92,7 +92,7 @@ const Dashboard: React.FC = () => {
             toggleSidebar={toggleSidebar}
             handleLogout={handleLogout}
           />
-          {/* <ContentSection /> */}
+          <ContentSection />
           <FooterSection />
         </Layout>
       </Layout>

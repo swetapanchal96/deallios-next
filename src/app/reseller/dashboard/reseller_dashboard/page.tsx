@@ -288,6 +288,7 @@ const ResellerDashboard: React.FC = () => {
       className="main-pad"
       style={{
         backgroundColor: '#f5f5f5',
+        color:"black",  
         minHeight: '100vh',
       }}
     >
