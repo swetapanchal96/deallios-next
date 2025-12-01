@@ -1,0 +1,77 @@
+/* Full-Screen Sparkling Effect */
+.sparkle-overlay {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  pointer-events: none;
+  position: absolute;
+  z-index: 10;
+  animation: sparkleAnimation 3s infinite;
+}
+
+/* Glow Text Animation */
+.glow-text {
+  text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ffa500, 0 0 40px #ffa500;
+  animation: glowPulse 1.5s infinite;
+}
+
+/* Sparkling Keyframes */
+@keyframes sparkleAnimation {
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100px 100px;
+  }
+}
+
+/* Glowing Pulse Keyframes */
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ffa500,
+      0 0 40px #ffa500;
+  }
+  50% {
+    text-shadow: 0 0 20px #ff0, 0 0 40px #ff0, 0 0 50px #ffa500,
+      0 0 60px #ffa500;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ffa500,
+      0 0 40px #ffa500;
+  }
+}
+
+/* PopUp  */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.glow-text {
+  font-size: 2rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ff8c00,
+    0 0 40px #ff8c00, 0 0 50px #ff4500, 0 0 75px #ff4500;
+}
+
+

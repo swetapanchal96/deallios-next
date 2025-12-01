@@ -251,8 +251,9 @@ const Header = () => {
         }
     };
 
-    const handleCategoryClick = async (categoryId: string | number) => {
-        console.log(categoryId, "categoryId===========");
+    const handleCategoryClick = async (categoryId: string | number, slug: string) => {
+
+        const safeSlug = encodeURIComponent(slug);
         setError(null);
 
         let lat = "22.9866501";
@@ -299,16 +300,16 @@ const Header = () => {
             }
 
             router.push(
-                `/search?category=${categoryId}${cityQuery ? `&city=${""}` : ""}`
+                `/search?category=${safeSlug}${cityQuery ? `&city=${""}` : ""}`
             );
         } catch (error) {
             console.error("Error fetching category deals:", error);
         }
     };
-
+    console.log(deals, "dealsdeals")
     return (
         <>
-        <ScrollToTop/>
+            <ScrollToTop />
             <section className="top-header-bar">
                 <div
                     className="d-flex align-items-center justify-content-between flex-wrap px-3 w-100"
@@ -416,10 +417,12 @@ const Header = () => {
                                                     <div className="d-flex flex-wrap align-items-start">
                                                         <div className="w-50 pe-2">
                                                             {deal.images.length > 0 && (
-                                                                <img
-                                                                    src={deal.images.photo}
-                                                                    alt={deal.main_title}
-                                                                    className="serach-deal-img w-100 rounded"
+                                                                <Image
+                                                                    src={deal.images[0].photo || "/placeholder.png"}
+                                                                    alt={deal.main_title || "deal image"}
+                                                                    width={500}
+                                                                    height={300}
+                                                                    className="serach-deal-img w-100 rounded object-cover"
                                                                 />
                                                             )}
                                                         </div>
@@ -648,7 +651,10 @@ const Header = () => {
                                                 <button
                                                     className="dropdown-category"
                                                     onClick={() =>
-                                                        handleCategoryClick(category.Categories_id)
+                                                        handleCategoryClick(
+                                                            category.Categories_id,
+                                                            category.Categories_slug
+                                                        )
                                                     }
                                                     style={{
                                                         background: "none",

@@ -1,0 +1,199 @@
+/* DealDetail.css */
+
+/* Custom radio button wrapper */
+.custom-radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px; /* space for the radio button */
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Style for the radio button */
+.custom-radio {
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 3px solid #2a2247;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  top: 52%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  top: 20px;
+}
+
+/* Hover effect for radio button */
+.custom-radio:hover {
+  border-color: #45a049; /* Slightly darker green on hover */
+  box-shadow: 0 0 10px rgba(72, 181, 92, 0.3); /* Subtle shadow on hover */
+}
+
+/* Style for the inner circle when selected */
+.custom-radio:checked {
+  border-color: #2a2247;
+  background-color: #2a2247;
+}
+
+/* Inner circle when radio button is selected */
+.custom-radio:checked + .custom-radio-circle {
+  background-color: #fff;
+  transform: scale(1.2);
+}
+
+/* Style for the inner circle */
+.custom-radio-circle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Label text */
+.custom-radio-label span {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Focus state for the radio button */
+.custom-radio:focus {
+  outline: none;
+  border-color: #2a2247;
+  box-shadow: 0 0 10px rgba(72, 181, 92, 0.4); /* Glow effect */
+}
+
+/* Selected option styling */
+.deal-option {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for deal option */
+.deal-option:hover {
+  background-color: #eafaf0;
+  box-shadow: 0 0 12px rgba(72, 181, 92, 0.3);
+}
+
+/* Deal option title */
+.deal-option h4 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Deal option description */
+.deal-option p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Active radio button when selected */
+.custom-radio:checked + .custom-radio-circle {
+  background-color: #2a2247;
+}
+
+/* Custom active state for option text */
+.deal-option.active {
+  background-color: #f0f8f1;
+  border-left: 8px solid #2a2247;
+}
+
+/* Smooth transition for custom option selection */
+.deal-option.active .custom-radio-label span {
+  color: #2a2247;
+}
+
+.custom-radio:checked + .custom-radio-circle {
+  background-color: #ffffff;
+  position: absolute;
+  right: 6px;
+  /* left: -3px; */
+  top: 14px;
+}
+
+.right-head {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.new-w {
+  width: 100% !important;
+}
+
+/* BUtton Css  */
+
+/* From Uiverse.io by vinodjangid07 */
+/* .Btn {
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    #77530a,
+    #ffd277,
+    #77530a,
+    #77530a,
+    #ffd277,
+    #77530a
+  );
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
+  overflow: hidden;
+}
+
+.Btn::before {
+  position: absolute;
+  content: "SUBSCRIBE";
+  color: #ffd277;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97%;
+  height: 90%;
+  border-radius: 8px;
+  transition-duration: 1s;
+  background-color: rgba(0, 0, 0, 0.842);
+  background-size: 200%;
+}
+
+.Btn:hover {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.Btn:hover::before {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.Btn:active {
+  transform: scale(0.95);
+} */
+
+
+.deal-description ul{
+    margin-left: 15px;
+}
