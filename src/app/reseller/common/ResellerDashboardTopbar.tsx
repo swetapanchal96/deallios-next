@@ -1,3 +1,4 @@
+"use client"
 // components/TopMenu.tsx
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
@@ -14,6 +15,8 @@ import {
   UserOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
+import Image from "next/image";
+import logo from '@/app/assets/deal-logo-white.png'
 
 const { Text } = Typography;
 
@@ -32,23 +35,24 @@ const TopMenu: React.FC<TopMenuProps> = ({ handleLogout }) => {
     if (!pathname.includes("/reseller_add_deal")) {
       if (typeof window !== "undefined") {
         localStorage.removeItem("deal_id");
+        router.push('/reseller/reseller_login')
         console.log("deal_id removed from localStorage");
       }
     }
   };
 
   const menuItems = [
-    { path: "/reseller_dashboard", name: "Dashboard", icon: <HomeOutlined /> },
+    { path: "/reseller/dashboard/reseller_dashboard", name: "Dashboard", icon: <HomeOutlined /> },
     {
       path: "/reseller_add_deal",
       name: "Add Deal",
       icon: <PlusOutlined />,
       onClick: handleAddDealClick,
     },
-    { path: "/manage_deal", name: "Manage Deal", icon: <FileOutlined /> },
-    { path: "/add_promocode", name: "Add Promocode", icon: <TagsOutlined /> },
+    { path: "/reseller/dashboard/manage_deal", name: "Manage Deal", icon: <FileOutlined /> },
+    { path: "/reseller/dashboard/add_promocode", name: "Add Promocode", icon: <TagsOutlined /> },
     {
-      path: "/manage_promocode",
+      path: "/reseller/dashboard/manage_promocode",
       name: "Manage Promocode",
       icon: <FileOutlined />,
     },
@@ -72,7 +76,7 @@ const TopMenu: React.FC<TopMenuProps> = ({ handleLogout }) => {
       key: "profile",
       icon: <SettingOutlined />,
       label: (
-        <Link href="/reseller_profile">
+        <Link href="/reseller/dashboard/reseller_profile">
           Profile
         </Link>
       ),
@@ -118,10 +122,10 @@ const TopMenu: React.FC<TopMenuProps> = ({ handleLogout }) => {
             strong
             style={{ marginLeft: "16px", fontSize: "18px", color: "#000" }}
           >
-            <Link href="/reseller_dashboard" legacyBehavior>
-              <a>
-                <img width={150} src="/images/deal-logo-white.png" alt="Logo" />
-              </a>
+            <Link href="/reseller/dashboard/reseller_dashboard" >
+              
+                <Image width={150} src={logo} alt="Logo" />
+              
             </Link>
           </Text>
         </div>

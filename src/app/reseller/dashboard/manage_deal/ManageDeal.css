@@ -1,0 +1,95 @@
+/* ManageDeal.css */
+
+td.ant-table-cell {
+  text-align: center;
+}
+
+:where(.css-dev-only-do-not-override-1kf000u).ant-table-wrapper
+  .ant-table-pagination.ant-pagination {
+  margin: 16px 0;
+  justify-content: center;
+}
+
+:where(.css-dev-only-do-not-override-1kf000u).ant-drawer .ant-drawer-header {
+  display: flex;
+  flex: 0;
+  align-items: center;
+  padding: 16px 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-bottom: 2px solid rgb(255 255 255);
+  background: #b14ede;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .ant-table {
+    font-size: 12px;
+  }
+
+  .ant-table-thead th {
+    padding: 8px;
+  }
+
+  .ant-table-tbody td {
+    padding: 8px;
+  }
+
+  .ant-table .ant-table-tbody td {
+    word-wrap: break-word; /* Break long words */
+    overflow: hidden; /* Hide overflow */
+  }
+
+  .ant-table .ant-table-tbody td .ant-btn {
+    padding: 0; /* Compact the button size */
+  }
+
+  /* Adjust modal content */
+  .deal-de-t .row {
+    flex-direction: column;
+  }
+
+  .deal-de-t .col-lg-6 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-table {
+    font-size: 10px;
+  }
+
+  .ant-table .ant-table-tbody td {
+    padding: 5px;
+  }
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-start;
+}
+
+.action-buttons .ant-btn {
+  width: 48%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Optional: stack in one row on larger screens */
+@media (min-width: 600px) {
+  .action-buttons {
+    flex-wrap: nowrap;
+  }
+
+  .action-buttons .ant-btn {
+    width: auto;
+  }
+}
+@media (max-width: 600px) {
+  .action-buttons {
+    gap: 0px;
+  }
+}
