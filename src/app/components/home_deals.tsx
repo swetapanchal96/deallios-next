@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Slider from "react-slick";
 import Image from "next/image";
+import { apiUrl } from "@/config";
 
 const DEFAULT_LAT = 23.0225; // Ahmedabad latitude
 const DEFAULT_LONG = 72.5714; // Ahmedabad longitude
@@ -81,7 +82,7 @@ const HomeDeal: React.FC = () => {
   const fetchDealsData = async (lat: number, long: number): Promise<void> => {
     try {
       setLoading(true);
-      const response = await fetch("https://getdemo.in/pricecut/api/Front/Dealsearch", {
+      const response = await fetch(`${apiUrl}/Front/Dealsearch`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

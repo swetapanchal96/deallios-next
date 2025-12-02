@@ -19,7 +19,8 @@ const ResellerLayout: React.FC<ResellerLayoutProps> = ({ children }) => {
     pathname.startsWith("/reseller/dashboard/reseller_dashboard") ||
     pathname.startsWith("/reseller/dashboard/add_promocode") ||
     pathname.startsWith("/reseller/dashboard/manage_promocode") ||
-    pathname.startsWith("/reseller/dashboard/manage_deal")
+    pathname.startsWith("/reseller/dashboard/manage_deal") ||
+    pathname.startsWith("/reseller/dashboard/reseller_add_deal")
 
   return (
     <AuthProvider>

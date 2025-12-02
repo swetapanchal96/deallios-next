@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import "./DealDetail.css";
 import "./WiningEffect.css";
 import { useParams, useRouter } from "next/navigation";
+import { apiUrl } from "@/config";
 import Link from "next/link";
 
 interface DealImage {
@@ -69,7 +70,7 @@ export default function DealDetail({ guid }: { guid: string }) {
   const fetchDealDetail = async () => {
     try {
       const response = await fetch(
-        "https://getdemo.in/pricecut/api/Front/DealDetail",
+        `${apiUrl}/Front/DealDetail`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -113,7 +114,7 @@ export default function DealDetail({ guid }: { guid: string }) {
 
     try {
       const response = await fetch(
-        "https://getdemo.in/pricecut/api/customersubscribedeal",
+        `${apiUrl}/customersubscribedeal`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

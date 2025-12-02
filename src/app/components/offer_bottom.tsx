@@ -3,6 +3,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Skeleton } from "@mui/material";
+import { apiUrl } from "@/config";
 
 function OffersBottom() {
   const [imgoffer, setImageOffer] = useState([]);
@@ -10,7 +11,7 @@ function OffersBottom() {
 
   useEffect(() => {
     axios
-      .post("https://getdemo.in/pricecut/api/Front/OfferImageDisaplay")
+      .post(`${apiUrl}/Front/OfferImageDisaplay`)
       .then((res) => {
         // Filter the offers based on is_align === 2
         const filteredOffers = res.data.data.filter(

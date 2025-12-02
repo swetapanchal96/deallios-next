@@ -11,6 +11,7 @@ import Image from "next/image";
 import lightLogo from '@/app/assets/logowhite.png'
 import blinking from '@/app/assets/bg-imgs.svg'
 import ScrollToTop from "./scrollToTop";
+import { apiUrl } from "@/config";
 
 const Header = () => {
     const { avatar } = useContext(UserProfileContext);
@@ -67,7 +68,7 @@ const Header = () => {
         const fetchCategories = async () => {
             try {
                 const response = await axios.post(
-                    "https://getdemo.in/pricecut/api/Front/Topmenu"
+                    `${apiUrl}/Front/Topmenu`
                 );
                 setCategories(response.data.data);
                 const extractedSubcategories = response.data.data.flatMap(
@@ -91,7 +92,7 @@ const Header = () => {
         const fetchCities = async () => {
             try {
                 const response = await axios.post(
-                    "https://getdemo.in/pricecut/api/city"
+                    `${apiUrl}/city`
                 );
                 setCities(response.data.data);
             } catch (err) {
@@ -138,7 +139,7 @@ const Header = () => {
             }
 
             const response = await axios.post(
-                "https://getdemo.in/pricecut/api/Front/Dealsearch",
+                `${apiUrl}/Front/Dealsearch`,
                 {
                     lat,
                     long,
@@ -228,7 +229,7 @@ const Header = () => {
 
         try {
             const response = await axios.post(
-                "https://getdemo.in/pricecut/api/Front/Dealsearch",
+                `${apiUrl}/Front/Dealsearch`,
                 {
                     lat,
                     long,
@@ -280,7 +281,7 @@ const Header = () => {
 
         try {
             const response = await axios.post(
-                "https://getdemo.in/pricecut/api/Front/Dealsearch",
+                `${apiUrl}/Front/Dealsearch`,
                 {
                     lat,
                     long,

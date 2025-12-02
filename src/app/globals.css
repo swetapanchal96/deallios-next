@@ -4901,3 +4901,37 @@ element.style {
   height: 370px;
   object-fit: cover;
 }
+
+ 
+
+
+:where(.css-var-root) .ant-breadcrumb ol{
+display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #2a2247 !important;
+    color: #ffffff !important;
+    padding: 9px;
+    border-radius: 6px;
+}
+
+.ant-breadcrumb .ant-breadcrumb-separator {
+    margin-inline: var(--ant-breadcrumb-separator-margin);
+    color: #ffffff;
+}
+
+/* Hide on desktop */
+.mobile-only {
+  display: none !important;
+}
+
+/* Show on mobile */
+@media (max-width: 768px) {
+  .mobile-only {
+    display: flex !important;
+  }
+}
+
+

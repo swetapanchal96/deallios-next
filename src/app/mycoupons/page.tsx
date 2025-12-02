@@ -23,6 +23,7 @@ import {
 } from "@mui/material";
 import { Visibility } from "@mui/icons-material";
 import { usePathname } from "next/navigation";
+import { apiUrl } from "@/config";
 
 // ---------------- TYPES --------------------
 interface DealType {
@@ -68,7 +69,7 @@ const MyCouponsTab: React.FC = () => {
 
         try {
             const response = await fetch(
-                "https://getdemo.in/pricecut/api/customer/subscribe/deal/detail",
+                `${apiUrl}/customer/subscribe/deal/detail`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -140,7 +141,7 @@ const MyCouponsTab: React.FC = () => {
             setSubmittingReview(true);
 
             const res = await fetch(
-                "https://getdemo.in/pricecut/api/customer/reviewadd",
+                `${apiUrl}/customer/reviewadd`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

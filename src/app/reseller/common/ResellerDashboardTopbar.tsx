@@ -44,7 +44,7 @@ const TopMenu: React.FC<TopMenuProps> = ({ handleLogout }) => {
   const menuItems = [
     { path: "/reseller/dashboard/reseller_dashboard", name: "Dashboard", icon: <HomeOutlined /> },
     {
-      path: "/reseller_add_deal",
+      path: "/reseller/dashboard/reseller_add_deal",
       name: "Add Deal",
       icon: <PlusOutlined />,
       onClick: handleAddDealClick,
@@ -58,20 +58,20 @@ const TopMenu: React.FC<TopMenuProps> = ({ handleLogout }) => {
     },
   ];
 
-//   const userMenu = (
-//     <Menu>
-//       <Menu.Item key="1" icon={<SettingOutlined />}>
-//         <Link href="/reseller_profile" legacyBehavior>
-//           <a>Profile</a>
-//         </Link>
-//       </Menu.Item>
-//       <Menu.Item key="2" icon={<LogoutOutlined />} onClick={handleLogout}>
-//         Logout
-//       </Menu.Item>
-//     </Menu>
-//   );
+  //   const userMenu = (
+  //     <Menu>
+  //       <Menu.Item key="1" icon={<SettingOutlined />}>
+  //         <Link href="/reseller_profile" legacyBehavior>
+  //           <a>Profile</a>
+  //         </Link>
+  //       </Menu.Item>
+  //       <Menu.Item key="2" icon={<LogoutOutlined />} onClick={handleLogout}>
+  //         Logout
+  //       </Menu.Item>
+  //     </Menu>
+  //   );
 
- const userMenuItems: MenuProps["items"] = [
+  const userMenuItems: MenuProps["items"] = [
     {
       key: "profile",
       icon: <SettingOutlined />,
@@ -123,9 +123,9 @@ const TopMenu: React.FC<TopMenuProps> = ({ handleLogout }) => {
             style={{ marginLeft: "16px", fontSize: "18px", color: "#000" }}
           >
             <Link href="/reseller/dashboard/reseller_dashboard" >
-              
-                <Image width={150} src={logo} alt="Logo" />
-              
+
+              <Image width={150} src={logo} alt="Logo" />
+
             </Link>
           </Text>
         </div>
@@ -134,18 +134,21 @@ const TopMenu: React.FC<TopMenuProps> = ({ handleLogout }) => {
         <div className="menu-container d-flex">
           <div className="desktop-menu">
             {menuItems.map((item, index) => (
-              <Link href={item.path} passHref legacyBehavior key={index}>
-                <a
-                  style={{
-                    color: pathname === item.path ? "#b14ede" : "#000",
-                    fontSize: "16px",
-                    marginRight: "16px",
-                  }}
-                  onClick={item.onClick}
-                >
-                  {item.icon}
-                  <span className="mx-2">{item.name}</span>
-                </a>
+              <Link
+                href={item.path}
+                key={index}
+                style={{
+                  color: pathname === item.path ? "#b14ede" : "#000",
+                  fontSize: "16px",
+                  marginRight: "16px",
+                  cursor: "pointer",
+                  display: "inline-flex",
+                  alignItems: "center",
+                }}
+                onClick={item.onClick}
+              >
+                {item.icon}
+                <span className="mx-2">{item.name}</span>
               </Link>
             ))}
           </div>
@@ -165,9 +168,9 @@ const TopMenu: React.FC<TopMenuProps> = ({ handleLogout }) => {
             }}
           />
           <Dropdown trigger={["click"]} menu={{
-          items: userMenuItems,
-          onClick: handleUserMenuClick,
-        }}>
+            items: userMenuItems,
+            onClick: handleUserMenuClick,
+          }}>
             <Avatar
               style={{ backgroundColor: "#b14ede", cursor: "pointer" }}
               icon={<UserOutlined />}
@@ -182,7 +185,7 @@ const TopMenu: React.FC<TopMenuProps> = ({ handleLogout }) => {
         closable={false}
         onClose={toggleDrawer}
         open={isDrawerVisible}
-        width={250}
+        style={{ width: 250 }}
       >
         <Menu mode="inline">
           {menuItems.map((item, index) => (
