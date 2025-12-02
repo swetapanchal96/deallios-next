@@ -15,8 +15,9 @@ import {
   QrcodeOutlined,
 } from "@ant-design/icons";
 import QRCode from "qrcode";
-import html2pdf from "html2pdf.js";
+// import html2pdf from "html2pdf.js";
 import "./ManageDeal.css";
+import { apiUrl } from "@/config";
 
 // Type definitions
 interface DealImage {
@@ -81,7 +82,7 @@ export default function ManageDeal() {
         }
 
         const response = await fetch(
-          "https://getdemo.in/pricecut/api/Front/ManageDeal",
+          `${apiUrl}/Front/ManageDeal`,
           {
             method: "POST",
             headers: {
@@ -117,7 +118,7 @@ export default function ManageDeal() {
     try {
       message.info("Fetching deal details...");
       const response = await fetch(
-        "https://getdemo.in/pricecut/api/Front/Deallist",
+        `${apiUrl}/Front/Deallist`,
         {
           method: "POST",
           headers: {
@@ -161,7 +162,7 @@ export default function ManageDeal() {
       onOk: async () => {
         try {
           const response = await fetch(
-            "https://getdemo.in/pricecut/api/Front/DeleteDeal",
+            `${apiUrl}/Front/DeleteDeal`,
             {
               method: "POST",
               headers: {
@@ -194,6 +195,12 @@ export default function ManageDeal() {
 
   const handleGeneratePDF = async (record: Deal) => {
     try {
+      if (typeof window === 'undefined') {
+      message.error("PDF generation is only available in the browser");
+      return;
+    }
+
+
       const guid = record.GUID;
       const qrURL = `https://deallios.apolloinfotech.in/deal/${guid}`;
 
@@ -225,7 +232,7 @@ export default function ManageDeal() {
           </footer>
         </div>
       `;
-
+       const html2pdf = (await import("html2pdf.js")).default;
       // Configure options for `html2pdf.js`
       const options = {
         margin: 1,

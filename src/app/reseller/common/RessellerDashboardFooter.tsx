@@ -17,7 +17,12 @@ const FooterSection: React.FC = () => {
         padding: "16px",
       }}
     >
-      <Space direction="vertical">
+      <Space style={{
+        flexDirection: "column",
+        display: "flex",
+        alignItems: "center",
+        textAlign: "center",
+      }}>
         <Text style={{ color: "#aaa" }}>
           © {new Date().getFullYear()} Deallios Dashboard
         </Text>

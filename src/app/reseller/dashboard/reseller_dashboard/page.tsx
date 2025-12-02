@@ -7,6 +7,7 @@ import { Card, Row, Col, Statistic, Typography, Space } from 'antd';
 import ReactEcharts from 'echarts-for-react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { apiUrl } from '@/config';
 
 const { Title } = Typography;
 
@@ -65,7 +66,7 @@ const ResellerDashboard: React.FC = () => {
     const fetchDashboardData = async () => {
       try {
         const response = await axios.post(
-          'https://getdemo.in/pricecut/api/vendor/dashboard',
+          `${apiUrl}/vendor/dashboard`,
           { vendor_id: '78' }
         );
         if (response.data) {
@@ -94,7 +95,7 @@ const ResellerDashboard: React.FC = () => {
 
       try {
         const response = await axios.post(
-          'https://getdemo.in/pricecut/api/vendor/getMonthlySubscriptions',
+          `${apiUrl}/vendor/getMonthlySubscriptions`,
           {
             vendor_id: vendorId,
           }
@@ -132,7 +133,7 @@ const ResellerDashboard: React.FC = () => {
 
       try {
         const response = await axios.post(
-          'https://getdemo.in/pricecut/api/vendor/userEngagementChart',
+          `${apiUrl}/vendor/userEngagementChart`,
           {
             vendor_id: vendorId,
           }
@@ -292,7 +293,7 @@ const ResellerDashboard: React.FC = () => {
         minHeight: '100vh',
       }}
     >
-      <Space direction="vertical" size="large" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="large" style={{ width: '100%' }}>
         <Row gutter={[24, 24]}>
           <Col xs={24} sm={12} md={8} className="top-box">
             <Card

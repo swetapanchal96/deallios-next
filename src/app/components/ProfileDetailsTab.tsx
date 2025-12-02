@@ -9,6 +9,7 @@ import {
   Skeleton
 } from "@mui/material";
 import { styled } from "@mui/system";
+import { apiUrl } from "@/config";
 
 // Styled Save Button
 const SaveButton = styled(Button)(({ theme }) => ({
@@ -59,7 +60,7 @@ const ProfileDetailsTab: React.FC = () => {
 
       try {
         const response = await axios.post(
-          "https://getdemo.in/pricecut/api/customer/profile",
+          `${apiUrl}/customer/profile`,
           { Customer_GUID: customerGUID },
           {
             headers: {
@@ -129,7 +130,7 @@ const ProfileDetailsTab: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "https://getdemo.in/pricecut/api/customer/profile/update",
+        `${apiUrl}/customer/profile/update`,
         payload,
         {
           headers: {

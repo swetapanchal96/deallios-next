@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Skeleton } from "@mui/material";
 import Image from "next/image";
+import { apiUrl } from "@/config";
 
 type Offer = {
     offer_image: string;
@@ -17,7 +18,7 @@ const Offers: React.FC = () => {
 
     useEffect(() => {
         axios
-            .post("https://getdemo.in/pricecut/api/Front/OfferImageDisaplay")
+            .post(`${apiUrl}/Front/OfferImageDisaplay`)
             .then((res) => {
                 const filteredOffers: Offer[] = res.data.data.filter(
                     (image: Offer) => image.is_align === 1

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { apiUrl } from "@/config";
 
 
 const DEFAULT_LAT = 12.9716;
@@ -87,7 +88,7 @@ function TopStores() {
     try {
       setLoading(true);
       const response = await fetch(
-        "https://getdemo.in/pricecut/api/Front/Dealsearch",
+        `${apiUrl}/Front/Dealsearch`,
         {
           method: "POST",
           headers: {

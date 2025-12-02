@@ -7,6 +7,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import bgImage from "../../../public/assets/deal-banner.jpg";
 import "./contact.css"; // Keep your existing CSS (place in public or styles folder)
+import { apiUrl } from '@/config';
 
 function Contact() {
   const [loading, setLoading] = useState(false);
@@ -39,7 +40,7 @@ function Contact() {
 
     try {
       const response = await axios.post(
-        "https://getdemo.in/pricecut/api/Front/contactmailsend",
+        `${apiUrl}/Front/contactmailsend`,
         {
           name: formData.name,
           email: formData.email,

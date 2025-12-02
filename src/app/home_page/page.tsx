@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Homepage.css";
+import { apiUrl } from "@/config";
 
 const HomePage = () => {
   const services = [
@@ -51,7 +52,7 @@ const HomePage = () => {
 
     try {
       const response = await axios.post(
-        "https://getdemo.in/pricecut/api/Front/contactmailsend",
+        `${apiUrl}/Front/contactmailsend`,
         {
           name: formData.name,
           email: formData.email,

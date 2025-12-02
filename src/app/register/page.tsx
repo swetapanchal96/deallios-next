@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa"; // Font Awesome icons
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { apiUrl } from "@/config";
 
 interface FormData {
   username: string;
@@ -63,7 +64,7 @@ const Register: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "https://getdemo.in/pricecut/api/customer-registration",
+        `${apiUrl}/customer-registration`,
         {
           Customer_name: formData.username,
           Customer_phone: formData.phone,
@@ -93,7 +94,7 @@ const Register: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "https://getdemo.in/pricecut/api/customerverifyOTP",
+        `${apiUrl}/customerverifyOTP`,
         {
           Customer_email: formData.email,
           otp: otp,

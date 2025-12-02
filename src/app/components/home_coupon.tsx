@@ -6,6 +6,7 @@ import { Skeleton } from "@mui/material";
 import { useRouter } from "next/navigation";
 import "./CouponsSlider.css";
 import Link from "next/link";
+import { apiUrl } from "@/config";
 
 const sliderSettings = {
   dots: false,
@@ -79,7 +80,7 @@ const CouponsSlider = () => {
     const fetchCoupons = async () => {
       try {
         const response = await fetch(
-          "https://getdemo.in/pricecut/api/Front/FrontPromocodelist",
+          `${apiUrl}/Front/FrontPromocodelist`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

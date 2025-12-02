@@ -32,11 +32,12 @@
 
 import axios from "axios";
 import DealDetail from "./DealDetail";
+import { apiUrl } from "@/config";
 
 export async function generateStaticParams() {
     try {
         const response = await axios.post(
-            "https://getdemo.in/pricecut/api/Front/Dealsearch",
+            `${apiUrl}/Front/Dealsearch`,
             {}, // same empty body as your useEffect
             {
                 headers: { "Content-Type": "application/json" },

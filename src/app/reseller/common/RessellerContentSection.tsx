@@ -9,24 +9,26 @@ const { Content } = Layout;
 // Import your components (converted pages)
 import Dashboard from "../dashboard/reseller_dashboard/page";
 import path from "path";
-// import ResellerAddDeal from "./reseller_add_deal/page";
+import ResellerAddDeal from "../dashboard/reseller_add_deal/page";
 import ResellerProfile from "../dashboard/reseller_profile/page";
 import ManageDeal from "../dashboard/manage_deal/page";
 import AddPromoCode from "../dashboard/add_promocode/page";
 import ManagePromoCode from "../dashboard/manage_promocode/page";
 
 
+
+
 const ContentSection: React.FC = () => {
   const pathname = usePathname();
-// const isDashboardArea =
-//     pathname.startsWith("/reseller/dashboard/reseller_dashboard") 
+const isDashboardArea =
+    pathname.startsWith("/reseller/dashboard/reseller_dashboard") 
   const renderComponent = () => {
     switch (pathname) {
         
       case "/reseller/dashboard/reseller_dashboard":
         return <Dashboard />;
-    //   case "/reseller/reseller_add_deal":
-    //     return <ResellerAddDeal />;
+      case "/reseller/dashboard/reseller_add_deal":
+        return <ResellerAddDeal />;
       case "/reseller/dashboard/reseller_profile":
         return <ResellerProfile />;
       case "/reseller/dashboard/manage_deal":

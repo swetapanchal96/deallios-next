@@ -9,6 +9,7 @@ import { UserProfileContext } from "../components/UserProfileContext";
 import ProfileDetailsTab from "../components/ProfileDetailsTab";
 import SettingsTab from "../components/UserPassword";
 import MyCouponsTab from "../mycoupons/page";
+import { apiUrl } from "@/config";
 
 const ProfileContainer = styled(Box)(({ theme }) => ({
     maxWidth: "100%",
@@ -77,7 +78,7 @@ export default function ProfilePage() {
             const requestPayload = { Customer_GUID: customerGUID };
 
             axios
-                .post("https://getdemo.in/pricecut/api/customer/profile", requestPayload)
+                .post(`${apiUrl}/customer/profile`, requestPayload)
                 .then((response) => {
                     const { Customer_img, Customer_email, Customer_name } =
                         response.data.data;
@@ -118,7 +119,7 @@ export default function ProfilePage() {
         reader.readAsDataURL(event.target.files[0]);
 
         axios
-            .post("https://getdemo.in/pricecut/api/customer/profile/update", formData, {
+            .post(`${apiUrl}/customer/profile/update`, formData, {
                 headers: {
                     Authorization: `Bearer ${storedToken}`,
                 },

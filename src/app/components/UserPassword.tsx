@@ -13,6 +13,7 @@ import { styled } from "@mui/system";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { apiUrl } from "@/config";
 
 // Styled Save Button
 const SaveButton = styled(Button)(({ theme }) => ({
@@ -71,7 +72,7 @@ const SettingsTab: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "https://getdemo.in/pricecut/api/customer/change/password",
+        `${apiUrl}/customer/change/password`,
         {
           Customer_GUID: customerGUID,
           old_password: oldPassword,

@@ -6,6 +6,7 @@ import axios from "axios";
 import { Button } from "antd";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { apiUrl } from "@/config";
 
 /* ------------------------------------------------------
    🔰 TYPES
@@ -87,7 +88,7 @@ export default function SearchResults() {
     -------------------------------------------------------*/
     const fetchCities = async () => {
         try {
-            const response = await axios.post("https://getdemo.in/pricecut/api/city");
+            const response = await axios.post(`${apiUrl}/city`);
             setCities(response.data.data);
         } catch (err) {
             console.error("Error fetching cities:", err);
@@ -109,7 +110,7 @@ export default function SearchResults() {
         setError(null);
 
         try {
-            const response = await axios.post("https://getdemo.in/pricecut/api/subcategories", {
+            const response = await axios.post(`${apiUrl}/subcategories`, {
                 CategorySlugname: categorySlug,
             });
 
@@ -133,7 +134,7 @@ export default function SearchResults() {
         setError(null);
 
         try {
-            const response = await axios.post("https://getdemo.in/pricecut/api/Front/Dealsearch", {
+            const response = await axios.post(`${apiUrl}/Front/Dealsearch`, {
                 lat: userLatLong?.lat || "22.9866501",
                 long: userLatLong?.long || "72.5796216",
                 ...(cityQuery && { city: cityQuery }),
