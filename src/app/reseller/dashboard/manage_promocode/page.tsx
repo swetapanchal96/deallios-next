@@ -249,20 +249,27 @@ const ManagePromocode: React.FC = () => {
 
   return (
     <>
-      <Breadcrumb style={{ margin: "16px 0" }}>
-        <Breadcrumb.Item>
-          <Link href="/reseller/dashboard/reseller_dashboard">
-            <HomeOutlined className="mx-1" />
-            Dashboard
-          </Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <Link href="/reseller/dashboard/manage_promocode">
-            <FileOutlined className="mx-1" />
-            Manage Promo Code
-          </Link>
-        </Breadcrumb.Item>
-      </Breadcrumb>
+      <Breadcrumb 
+      style={{ margin: "16px 0" }}
+      items={[
+    {
+      title: (
+        <Link href="/reseller/dashboard/reseller_dashboard" className="text-white">
+          <HomeOutlined className="mx-1" />
+          Dashboard
+        </Link>
+      ),
+    },
+    {
+      title: (
+        <Link href="/reseller/dashboard/manage_promocode" className="text-white">
+          <FileOutlined className="mx-1" />
+          Manage Promo Code
+        </Link>
+      ),
+    },
+  ]} />
+        
 
       <div style={{ padding: "20px" }}>
         <h1 className="table-mainhead">Manage Promocodes</h1>

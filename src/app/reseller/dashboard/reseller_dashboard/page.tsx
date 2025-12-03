@@ -163,9 +163,8 @@ const ResellerDashboard: React.FC = () => {
       formatter: function (params: any[]) {
         let tooltip = params[0].axisValue + '<br/>';
         params.forEach((item) => {
-          tooltip += `${item.marker} ${
-            item.seriesName
-          }: ₹${item.data.toLocaleString()}<br/>`;
+          tooltip += `${item.marker} ${item.seriesName
+            }: ₹${item.data.toLocaleString()}<br/>`;
         });
         return tooltip;
       },
@@ -289,7 +288,7 @@ const ResellerDashboard: React.FC = () => {
       className="main-pad"
       style={{
         backgroundColor: '#f5f5f5',
-        color:"black",  
+        color: "black",
         minHeight: '100vh',
       }}
     >
@@ -297,7 +296,7 @@ const ResellerDashboard: React.FC = () => {
         <Row gutter={[24, 24]}>
           <Col xs={24} sm={12} md={8} className="top-box">
             <Card
-              bordered={false}
+
               style={{
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 backgroundColor: '#2a2247',
@@ -310,14 +309,19 @@ const ResellerDashboard: React.FC = () => {
                   </Title>
                 }
                 value={dashboardData.subscribed_users}
-                valueStyle={{ color: '#fff', fontSize: '24px' }}
+                styles={{
+                  content: {
+                    color: "#fff",
+                    fontSize: "24px",
+                  },
+                }}
               />
             </Card>
           </Col>
 
           <Col xs={24} sm={12} md={8} className="top-box">
             <Card
-              bordered={false}
+
               style={{
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 backgroundColor: '#2a2247',
@@ -330,14 +334,19 @@ const ResellerDashboard: React.FC = () => {
                   </Title>
                 }
                 value={dashboardData.active_deals}
-                valueStyle={{ color: '#fff', fontSize: '24px' }}
+                styles={{
+                  content: {
+                    color: "#fff",
+                    fontSize: "24px",
+                  },
+                }}
               />
             </Card>
           </Col>
 
           <Col xs={24} sm={12} md={8} className="top-box">
             <Card
-              bordered={false}
+
               style={{
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 backgroundColor: '#2a2247',
@@ -350,7 +359,12 @@ const ResellerDashboard: React.FC = () => {
                   </Title>
                 }
                 value={dashboardData.total_deals}
-                valueStyle={{ color: '#fff', fontSize: '24px' }}
+                styles={{
+                  content: {
+                    color: "#fff",
+                    fontSize: "24px",
+                  },
+                }}
               />
             </Card>
           </Col>
@@ -359,7 +373,7 @@ const ResellerDashboard: React.FC = () => {
         <Row gutter={[24, 24]}>
           <Col xs={24} lg={12} className="bottom-box-none">
             <Card
-              bordered={false}
+
               style={{
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 backgroundColor: '#fff',
@@ -373,7 +387,7 @@ const ResellerDashboard: React.FC = () => {
 
           <Col xs={24} lg={12} className="bottom-box-none">
             <Card
-              bordered={false}
+
               style={{
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 backgroundColor: '#fff',

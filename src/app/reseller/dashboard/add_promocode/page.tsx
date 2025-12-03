@@ -153,7 +153,7 @@ function AddPromocode(): JSX.Element {
       payload.append('subcategory_id', String(values.subcategory_id));
       payload.append('vendorid', vendorId);
       payload.append('link', values.link);
-      
+
       if (fileList[0]?.originFileObj) {
         payload.append('pro_img', fileList[0].originFileObj);
       }
@@ -181,7 +181,7 @@ function AddPromocode(): JSX.Element {
     } catch (error) {
       const axiosError = error as AxiosError<{ message?: string }>;
       const errorMessage =
-        axiosError.response?.data?.message || 
+        axiosError.response?.data?.message ||
         'An error occurred while creating the promocode.';
       toast.error(errorMessage);
     } finally {
@@ -196,155 +196,163 @@ function AddPromocode(): JSX.Element {
   return (
     <ErrorBoundary>
       <div style={{ padding: '20px' }}>
-        <Breadcrumb style={{ marginBottom: '16px' }}>
-          <Breadcrumb.Item>
-            <Link href="/reseller/dashboard/reseller_dashboard">
-              <HomeOutlined className="mx-1" />
-              Dashboard
-            </Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>
-            <Link href="/reseller/dashboard/add_promocode">
-              <TagsOutlined className="mx-1" />
-              Add Promo Code
-            </Link>
-          </Breadcrumb.Item>
-        </Breadcrumb>
+        <Breadcrumb
+          style={{ marginBottom: '16px' }}
+          items={[
+            {
+              title: (
+                <Link href="/reseller/dashboard/reseller_dashboard" className='text-white'>
+                  <HomeOutlined className="mx-1" />
+                  Dashboard
+                </Link>
+              ),
+            },
+            {
+              title: (
+                <Link href="/reseller/dashboard/add_promocode" className='text-white'>
+                  <TagsOutlined className="mx-1" />
+                  Add Promo Code
+                </Link>
+              ),
+            },
+          ]}
+        />
 
-        <div className="row justify-content-center">
-          <div className="col-lg-6">
-            <h2 className="add-promocode-head">Add Promocode</h2>
-            <Form<FormValues>
-              form={form}
-              layout="vertical"
-              onFinish={onFinish}
-              initialValues={{ dis_per: '' }}
-              className="row"
-            >
-              <div className="col-lg-6">
-                <Form.Item
-                  name="code"
-                  label="Promocode"
-                  rules={[{ required: true, message: 'Please enter a promocode' }]}
-                >
-                  <Input placeholder="Enter promocode" />
-                </Form.Item>
-              </div>
 
-              <div className="col-lg-6">
-                <Form.Item
-                  name="dis_per"
-                  label="Discount Percentage"
-                  rules={[
-                    { required: true, message: 'Please enter discount percentage' },
-                  ]}
-                >
-                  <Input type="number" placeholder="Enter discount percentage" />
-                </Form.Item>
-              </div>
-
-              <div className="col-lg-12">
-                <Form.Item
-                  name="description"
-                  label="Promocode Description"
-                  rules={[{ required: true, message: 'Please enter Promocode Description' }]}
-                >
-                  <Input placeholder="Enter Promocode Description" />
-                </Form.Item>
-              </div>
-
-              <div className="col-lg-12">
-                <Form.Item
-                  name="date_range"
-                  className="w-100"
-                  label="Validity Period"
-                  rules={[{ required: true, message: 'Please select a date range' }]}
-                >
-                  <RangePicker className="w-100" format="DD-MM-YYYY" />
-                </Form.Item>
-              </div>
-
-              <div className="col-lg-6">
-                <Form.Item
-                  name="category_id"
-                  label="Category"
-                  rules={[{ required: true, message: 'Please select a category' }]}
-                >
-                  <Select
-                    placeholder="Select category"
-                    onChange={handleCategoryChange}
+          <div className="row justify-content-center">
+            <div className="col-lg-6">
+              <h2 className="add-promocode-head">Add Promocode</h2>
+              <Form<FormValues>
+                form={form}
+                layout="vertical"
+                onFinish={onFinish}
+                initialValues={{ dis_per: '' }}
+                className="row"
+              >
+                <div className="col-lg-6">
+                  <Form.Item
+                    name="code"
+                    label="Promocode"
+                    rules={[{ required: true, message: 'Please enter a promocode' }]}
                   >
-                    {categories.map((category) => (
-                      <Option
-                        key={category.Categories_id}
-                        value={category.Categories_id}
-                      >
-                        {category.Category_name}
-                      </Option>
-                    ))}
-                  </Select>
-                </Form.Item>
-              </div>
+                    <Input placeholder="Enter promocode" />
+                  </Form.Item>
+                </div>
 
-              <div className="col-lg-6">
-                <Form.Item
-                  name="subcategory_id"
-                  label="Subcategory"
-                  rules={[{ required: true, message: 'Please select a subcategory' }]}
-                >
-                  <Select placeholder="Select subcategory">
-                    {subcategories.map((subcategory) => (
-                      <Option
-                        key={subcategory.iSubCategoryId}
-                        value={subcategory.iSubCategoryId}
-                      >
-                        {subcategory.strSubCategoryName}
-                      </Option>
-                    ))}
-                  </Select>
-                </Form.Item>
-              </div>
-
-              <div className="col-lg-12">
-                <Form.Item
-                  name="link"
-                  label="Link"
-                  rules={[{ required: true, message: 'Please enter a link' }]}
-                >
-                  <Input placeholder="Enter link (e.g., www.example.com)" />
-                </Form.Item>
-              </div>
-
-              <div className="col-lg-12">
-                <Form.Item
-                  name="pro_img"
-                  label="Upload Image"
-                  rules={[{ required: true, message: 'Please upload an image' }]}
-                >
-                  <Upload
-                    listType="picture"
-                    fileList={fileList}
-                    onChange={handleFileChange}
-                    maxCount={1}
+                <div className="col-lg-6">
+                  <Form.Item
+                    name="dis_per"
+                    label="Discount Percentage"
+                    rules={[
+                      { required: true, message: 'Please enter discount percentage' },
+                    ]}
                   >
-                    <Button icon={<UploadOutlined />}>Upload</Button>
-                  </Upload>
-                </Form.Item>
-              </div>
+                    <Input type="number" placeholder="Enter discount percentage" />
+                  </Form.Item>
+                </div>
 
-              <Form.Item>
-                <Button
-                  className="main-btn"
-                  type="primary"
-                  htmlType="submit"
-                  loading={loading}
-                >
-                  {loading ? 'Loading...' : 'Submit'}
-                </Button>
-              </Form.Item>
-            </Form>
+                <div className="col-lg-12">
+                  <Form.Item
+                    name="description"
+                    label="Promocode Description"
+                    rules={[{ required: true, message: 'Please enter Promocode Description' }]}
+                  >
+                    <Input placeholder="Enter Promocode Description" />
+                  </Form.Item>
+                </div>
+
+                <div className="col-lg-12">
+                  <Form.Item
+                    name="date_range"
+                    className="w-100"
+                    label="Validity Period"
+                    rules={[{ required: true, message: 'Please select a date range' }]}
+                  >
+                    <RangePicker className="w-100" format="DD-MM-YYYY" />
+                  </Form.Item>
+                </div>
+
+                <div className="col-lg-6">
+                  <Form.Item
+                    name="category_id"
+                    label="Category"
+                    rules={[{ required: true, message: 'Please select a category' }]}
+                  >
+                    <Select
+                      placeholder="Select category"
+                      onChange={handleCategoryChange}
+                    >
+                      {categories.map((category) => (
+                        <Option
+                          key={category.Categories_id}
+                          value={category.Categories_id}
+                        >
+                          {category.Category_name}
+                        </Option>
+                      ))}
+                    </Select>
+                  </Form.Item>
+                </div>
+
+                <div className="col-lg-6">
+                  <Form.Item
+                    name="subcategory_id"
+                    label="Subcategory"
+                    rules={[{ required: true, message: 'Please select a subcategory' }]}
+                  >
+                    <Select placeholder="Select subcategory">
+                      {subcategories.map((subcategory) => (
+                        <Option
+                          key={subcategory.iSubCategoryId}
+                          value={subcategory.iSubCategoryId}
+                        >
+                          {subcategory.strSubCategoryName}
+                        </Option>
+                      ))}
+                    </Select>
+                  </Form.Item>
+                </div>
+
+                <div className="col-lg-12">
+                  <Form.Item
+                    name="link"
+                    label="Link"
+                    rules={[{ required: true, message: 'Please enter a link' }]}
+                  >
+                    <Input placeholder="Enter link (e.g., www.example.com)" />
+                  </Form.Item>
+                </div>
+
+                <div className="col-lg-12">
+                  <Form.Item
+                    name="pro_img"
+                    label="Upload Image"
+                    rules={[{ required: true, message: 'Please upload an image' }]}
+                  >
+                    <Upload
+                      listType="picture"
+                      fileList={fileList}
+                      onChange={handleFileChange}
+                      maxCount={1}
+                    >
+                      <Button icon={<UploadOutlined />}>Upload</Button>
+                    </Upload>
+                  </Form.Item>
+                </div>
+
+                <Form.Item>
+                  <Button
+                    className="main-btn"
+                    type="primary"
+                    htmlType="submit"
+                    loading={loading}
+                  >
+                    {loading ? 'Loading...' : 'Submit'}
+                  </Button>
+                </Form.Item>
+              </Form>
+            </div>
           </div>
-        </div>
       </div>
       <ToastContainer />
     </ErrorBoundary>

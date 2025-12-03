@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Carousel, Spin, Typography, Button, message } from "antd";
 import axios from "axios";
