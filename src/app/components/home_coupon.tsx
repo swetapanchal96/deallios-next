@@ -90,7 +90,7 @@ const CouponsSlider = () => {
 
         if (!response.ok)
           throw new Error(`HTTP error! Status: ${response.status}`);
-
+        
         const result = await response.json();
         if (result.success) setCoupons(result.data);
       } catch (error) {
@@ -153,7 +153,7 @@ const CouponsSlider = () => {
                   src={coupon.pro_img || "https://via.placeholder.com/150"}
                   alt={coupon.promo_name}
                   onClick={() =>
-                    router.push(`/promocode_detail/${coupon.GUID}`)
+                    router.push(`/promocode-detail/${coupon.GUID}`)
                   }
                 />
               </div>

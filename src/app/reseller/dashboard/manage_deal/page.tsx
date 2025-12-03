@@ -18,6 +18,7 @@ import QRCode from "qrcode";
 // import html2pdf from "html2pdf.js";
 import "./ManageDeal.css";
 import { apiUrl } from "@/config";
+import logo from '@/app/assets/logowhite.png'
 
 // Type definitions
 interface DealImage {
@@ -149,7 +150,7 @@ export default function ManageDeal() {
     if (typeof window !== 'undefined') {
       localStorage.setItem("deal_id", record.Deals_id);
     }
-    router.push("/reseller_add_deal");
+    router.push("/reseller/dashboard/reseller_add_deal");
   };
 
   const handleDelete = (record: Deal) => {
@@ -196,9 +197,9 @@ export default function ManageDeal() {
   const handleGeneratePDF = async (record: Deal) => {
     try {
       if (typeof window === 'undefined') {
-      message.error("PDF generation is only available in the browser");
-      return;
-    }
+        message.error("PDF generation is only available in the browser");
+        return;
+      }
 
 
       const guid = record.GUID;
@@ -219,7 +220,7 @@ export default function ManageDeal() {
           <div style="border:2px solid #2a2247;">
             <div class="header logo-kl text-center pt-3 pb-3">
               <div>
-                <img width="150" src="/images/logo-white.png" />
+                <img width="150" src=${logo.src} />
               </div>
             </div>
             <div class="qr-code text-center">
@@ -232,14 +233,14 @@ export default function ManageDeal() {
           </footer>
         </div>
       `;
-       const html2pdf = (await import("html2pdf.js")).default;
+      const html2pdf = (await import("html2pdf.js")).default;
       // Configure options for `html2pdf.js`
       const options = {
         margin: 1,
         filename: "deal-details.pdf",
         image: { type: "jpeg" as const, quality: 0.98 },
         html2canvas: { scale: 2 },
-        jsPDF: { unit: "in" as const , format: "letter" as const, orientation: "portrait" as const},
+        jsPDF: { unit: "in" as const, format: "letter" as const, orientation: "portrait" as const },
       };
 
       // Generate and download the PDF
@@ -250,7 +251,7 @@ export default function ManageDeal() {
     }
   };
 
-//    const responsiveBreakpoints: Breakpoint[] = ['sm', 'md', 'lg'];
+  //    const responsiveBreakpoints: Breakpoint[] = ['sm', 'md', 'lg'];
 
   const columns: ColumnType<Deal>[] = [
     {
@@ -364,20 +365,28 @@ export default function ManageDeal() {
 
   return (
     <div className="tab-gap">
-      <Breadcrumb style={{ margin: "16px 0",color:"white !important" }}>
-        <Breadcrumb.Item>
-          <Link href="/reseller_dashboard" className="text-white">
-            <HomeOutlined className="mx-1" />
-            Dashboard
-          </Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <Link href="/manage_deal" className="text-white">
-            <FileOutlined className="mx-1" />
-            Manage Deal
-          </Link>
-        </Breadcrumb.Item>
-      </Breadcrumb>
+      <Breadcrumb
+        style={{ margin: "16px 0", color: "white !important" }}
+        items={[
+          {
+            title: (
+              <Link href="/reseller/dashboard/reseller_dashboard" className="text-white">
+                <HomeOutlined className="mx-1" />
+                Dashboard
+              </Link>
+            ),
+          },
+          {
+            title: (
+              <Link href="/reseller/dashboard/manage_deal" className="text-white">
+                <FileOutlined className="mx-1" />
+                Manage Deal
+              </Link>
+            ),
+          },
+        ]}
+      />
+
 
       <h1 className="table-mainhead mt-4">Manage Deals</h1>
       <Table<Deal>
@@ -386,7 +395,7 @@ export default function ManageDeal() {
         rowKey="Deals_id"
         pagination={{ pageSize: 5 }}
         scroll={{ x: true }}
-        // responsive={true}
+      // responsive={true}
       />
 
       <Modal

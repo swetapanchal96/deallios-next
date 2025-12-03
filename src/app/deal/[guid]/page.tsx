@@ -55,7 +55,7 @@ export async function generateStaticParams() {
             guid: item?.GUID?.toString(),
         }));
 
-        console.log("✔ Static GUIDs:", params);
+        // console.log("✔ Static GUIDs:", params);
 
         return params;
     } catch (error) {

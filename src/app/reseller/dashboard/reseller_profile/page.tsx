@@ -12,6 +12,7 @@ import {
   FileOutlined,
 } from "@ant-design/icons";
 import { apiUrl } from "@/config";
+import Link from "next/link";
 
 interface VendorDataType {
   vendorname: string;
@@ -226,20 +227,28 @@ const ResellerProfile: React.FC = () => {
 
   return (
     <>
-      <Breadcrumb style={{ margin: "16px 0" }}>
-        <Breadcrumb.Item>
-          <a href="/reseller/dashboard/reseller_dashboard">
-            <HomeOutlined className="mx-1" />
-            Dashboard
-          </a>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <a href="/reseller/dashboard/reseller_profile">
-            <FileOutlined className="mx-1" />
-            Manage Profile
-          </a>
-        </Breadcrumb.Item>
-      </Breadcrumb>
+      <Breadcrumb
+        style={{ margin: "16px 0" }}
+        items={[
+          {
+            title: (
+              <Link href="/reseller/dashboard/reseller_dashboard" className="text-white">
+                <HomeOutlined className="mx-1" />
+                Dashboard
+              </Link>
+            ),
+          },
+          {
+            title: (
+              <Link href="/reseller/dashboard/reseller_profile" className="text-white">
+                <FileOutlined className="mx-1" />
+                Manage Profile
+              </Link>
+            ),
+          },
+        ]}
+      />
+
       <div
         style={{
           background: "aliceblue",
@@ -261,125 +270,145 @@ const ResellerProfile: React.FC = () => {
             border: "none !important",
           }}
         >
-          <Tabs defaultActiveKey="1">
-            <Tabs.TabPane tab={<span>👤 Profile</span>} key="1">
-              <div style={{ textAlign: "center", marginBottom: "20px" }}>
-                <Avatar
-                  size={100}
-                  icon={<UserOutlined />}
-                  src={
-                    vendorData.vendorimg instanceof File
-                      ? URL.createObjectURL(vendorData.vendorimg)
-                      : (vendorData.vendorimg as string) || null
-                  }
-                  style={{ marginBottom: "10px" }}
-                />
-                <h2 style={{ fontWeight: "bold", margin: 0 }}>
-                  {vendorData.vendorname || "Vendor Name"}
-                </h2>
-                <p style={{ margin: 0, color: "#888" }}>
-                  {vendorData.vendoremail || "Email Address"}
-                </p>
-              </div>
-              <Form layout="vertical" onSubmitCapture={handleSubmit}>
-                <Row gutter={16}>
-                  <Col span={24} sm={24} md={24} lg={12}>
-                    <Form.Item label="Vendor Name">
-                      <Input
-                        type="text"
-                        name="vendorname"
-                        value={vendorData.vendorname}
-                        onChange={handleInputChange}
-                        placeholder="Enter vendor name"
-                        style={{ borderRadius: "8px" }}
+          <Tabs
+            defaultActiveKey="1"
+            items={[
+              {
+                key: "1",
+                label: <span>👤 Profile</span>,
+                children: (
+                  <>
+                    <div style={{ textAlign: "center", marginBottom: "20px" }}>
+                      <Avatar
+                        size={100}
+                        icon={<UserOutlined />}
+                        src={
+                          vendorData.vendorimg instanceof File
+                            ? URL.createObjectURL(vendorData.vendorimg)
+                            : (vendorData.vendorimg as string) || null
+                        }
+                        style={{ marginBottom: "10px" }}
                       />
-                    </Form.Item>
-                  </Col>
-                  <Col span={24} sm={24} md={24} lg={12}>
-                    <Form.Item label="Business Name">
-                      <Input
-                        type="text"
-                        name="businessname"
-                        value={vendorData.businessname}
-                        onChange={handleInputChange}
-                        placeholder="Enter business name"
-                        style={{ borderRadius: "8px" }}
-                      />
-                    </Form.Item>
-                  </Col>
-                  <Col span={24} sm={24} md={24} lg={12}>
-                    <Form.Item label="Email">
-                      <Input
-                        type="email"
-                        name="vendoremail"
-                        value={vendorData.vendoremail}
-                        onChange={handleInputChange}
-                        placeholder="Enter email"
-                        style={{ borderRadius: "8px" }}
-                      />
-                    </Form.Item>
-                  </Col>
-                  <Col span={24} sm={24} md={24} lg={12}>
-                    <Form.Item label="Mobile">
-                      <Input
-                        type="text"
-                        name="vendormobile"
-                        value={vendorData.vendormobile}
-                        onChange={handleInputChange}
-                        placeholder="Enter mobile number"
-                        style={{ borderRadius: "8px" }}
-                      />
-                    </Form.Item>
-                  </Col>
-                  <Col span={24} sm={24} md={24} lg={24}>
-                    <Form.Item label="Business Address">
-                      <Input
-                        type="text"
-                        name="vendoraddress"
-                        value={vendorData.vendoraddress}
-                        onChange={handleInputChange}
-                        placeholder="Enter business address"
-                        style={{ borderRadius: "8px" }}
-                      />
-                    </Form.Item>
-                  </Col>
-                  <Col span={24} sm={24} md={24} lg={24}>
-                    <Form.Item label="Vendor Image">
-                      <Upload
-                        name="vendorimg"
-                        showUploadList={false}
-                        beforeUpload={(file) => {
-                          setVendorData({ ...vendorData, vendorimg: file });
-                          return false;
+                      <h2 style={{ fontWeight: "bold", margin: 0 }}>
+                        {vendorData.vendorname || "Vendor Name"}
+                      </h2>
+                      <p style={{ margin: 0, color: "#888" }}>
+                        {vendorData.vendoremail || "Email Address"}
+                      </p>
+                    </div>
+
+                    <Form layout="vertical" onSubmitCapture={handleSubmit}>
+                      <Row gutter={16}>
+                        <Col span={24} lg={12}>
+                          <Form.Item label="Vendor Name">
+                            <Input
+                              type="text"
+                              name="vendorname"
+                              value={vendorData.vendorname}
+                              onChange={handleInputChange}
+                              placeholder="Enter vendor name"
+                              style={{ borderRadius: "8px" }}
+                            />
+                          </Form.Item>
+                        </Col>
+
+                        <Col span={24} lg={12}>
+                          <Form.Item label="Business Name">
+                            <Input
+                              type="text"
+                              name="businessname"
+                              value={vendorData.businessname}
+                              onChange={handleInputChange}
+                              placeholder="Enter business name"
+                              style={{ borderRadius: "8px" }}
+                            />
+                          </Form.Item>
+                        </Col>
+
+                        <Col span={24} lg={12}>
+                          <Form.Item label="Email">
+                            <Input
+                              type="email"
+                              name="vendoremail"
+                              value={vendorData.vendoremail}
+                              onChange={handleInputChange}
+                              placeholder="Enter email"
+                              style={{ borderRadius: "8px" }}
+                            />
+                          </Form.Item>
+                        </Col>
+
+                        <Col span={24} lg={12}>
+                          <Form.Item label="Mobile">
+                            <Input
+                              type="text"
+                              name="vendormobile"
+                              value={vendorData.vendormobile}
+                              onChange={handleInputChange}
+                              placeholder="Enter mobile number"
+                              style={{ borderRadius: "8px" }}
+                            />
+                          </Form.Item>
+                        </Col>
+
+                        <Col span={24}>
+                          <Form.Item label="Business Address">
+                            <Input
+                              type="text"
+                              name="vendoraddress"
+                              value={vendorData.vendoraddress}
+                              onChange={handleInputChange}
+                              placeholder="Enter business address"
+                              style={{ borderRadius: "8px" }}
+                            />
+                          </Form.Item>
+                        </Col>
+
+                        <Col span={24}>
+                          <Form.Item label="Vendor Image">
+                            <Upload
+                              name="vendorimg"
+                              showUploadList={false}
+                              beforeUpload={(file) => {
+                                setVendorData({ ...vendorData, vendorimg: file });
+                                return false;
+                              }}
+                            >
+                              <Button icon={<UploadOutlined />} style={{ borderRadius: "8px" }}>
+                                Upload Image
+                              </Button>
+                            </Upload>
+                          </Form.Item>
+                        </Col>
+                      </Row>
+
+                      <Button
+                        type="primary"
+                        block
+                        className="auth-btn"
+                        loading={loading}
+                        onClick={handleSubmit}
+                        style={{
+                          borderRadius: "8px",
+                          backgroundColor: "#4CAF50",
+                          borderColor: "#4CAF50",
                         }}
                       >
-                        <Button icon={<UploadOutlined />} style={{ borderRadius: "8px" }}>
-                          Upload Image
-                        </Button>
-                      </Upload>
-                    </Form.Item>
-                  </Col>
-                </Row>
-                <Button
-                  type="primary"
-                  block
-                  className="auth-btn"
-                  loading={loading}
-                  onClick={handleSubmit}
-                  style={{
-                    borderRadius: "8px",
-                    backgroundColor: "#4CAF50",
-                    borderColor: "#4CAF50",
-                  }}
-                >
-                  {loading ? "Updating..." : "Update Profile"}
-                </Button>
-              </Form>
-            </Tabs.TabPane>
-            <Tabs.TabPane tab={<span>🔒 Change Password</span>} key="2">
-              <ChangePassword />
-            </Tabs.TabPane>
-          </Tabs>
+                        {loading ? "Updating..." : "Update Profile"}
+                      </Button>
+                    </Form>
+                  </>
+                ),
+              },
+
+              {
+                key: "2",
+                label: <span>🔒 Change Password</span>,
+                children: <ChangePassword />,
+              },
+            ]}
+          />
+
         </Card>
       </div>
     </>
