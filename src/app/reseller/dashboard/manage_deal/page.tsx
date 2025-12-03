@@ -364,15 +364,15 @@ export default function ManageDeal() {
 
   return (
     <div className="tab-gap">
-      <Breadcrumb style={{ margin: "16px 0" }}>
+      <Breadcrumb style={{ margin: "16px 0",color:"white !important" }}>
         <Breadcrumb.Item>
-          <Link href="/reseller_dashboard">
+          <Link href="/reseller_dashboard" className="text-white">
             <HomeOutlined className="mx-1" />
             Dashboard
           </Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item>
-          <Link href="/manage_deal">
+          <Link href="/manage_deal" className="text-white">
             <FileOutlined className="mx-1" />
             Manage Deal
           </Link>
