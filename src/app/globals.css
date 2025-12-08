@@ -1,4 +1,3 @@
-
 :root {
   --blue: #2c7be5;
   --indigo: #6610f2;
@@ -80,8 +79,8 @@ h6 {
 }
 
 .container {
-    max-width: 1200px !important;
-    margin: 0 auto !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
 }
 
 p {
@@ -3392,7 +3391,7 @@ select {
 
 .footer-li a,
 h6 {
-  color: white ;
+  color: white;
 }
 
 .fs-16 {
@@ -3990,7 +3989,7 @@ button.btn.btn-sm {
 }
 
 .slick-slider.slick-initialized {
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 6px;
   background: white;
 }
@@ -4443,6 +4442,7 @@ button.btn.btn-sm {
 .slider-wrapper {
   position: relative;
   overflow: hidden;
+  border-radius: 5px;
 }
 
 /* .deal-slide-card {
@@ -4617,9 +4617,6 @@ element.style {
 .slider-btn:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
-
-
-
 
 /* mobile-menu css */
 @media screen and (max-width: 990px) {
@@ -4896,30 +4893,26 @@ element.style {
   width: 125px;
 }
 
-
-.mm{
+.mm {
   height: 370px;
   object-fit: cover;
 }
 
- 
-
-
-:where(.css-var-root) .ant-breadcrumb ol{
-display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    background: #2a2247 !important;
-    color: #ffffff !important;
-    padding: 9px;
-    border-radius: 6px;
+:where(.css-var-root) .ant-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #2a2247 !important;
+  color: #ffffff !important;
+  padding: 9px;
+  border-radius: 6px;
 }
 
 .ant-breadcrumb .ant-breadcrumb-separator {
-    margin-inline: var(--ant-breadcrumb-separator-margin);
-    color: #ffffff;
+  margin-inline: var(--ant-breadcrumb-separator-margin);
+  color: #ffffff;
 }
 
 /* Hide on desktop */
@@ -4941,27 +4934,25 @@ display: flex;
 }
 
 .ant-table-wrapper .ant-table-pagination.ant-pagination {
-    margin: var(--ant-margin) 0;
-    display: flex;
-    justify-content: center;
+  margin: var(--ant-margin) 0;
+  display: flex;
+  justify-content: center;
 }
-
 
 .ant-layout-sider .ant-layout-sider-zero-width-trigger {
-    position: absolute;
-    top: var(--ant-layout-header-height);
-    inset-inline-end: calc(var(--ant-layout-zero-trigger-width) * -1);
-    z-index: 1;
-    width: var(--ant-layout-zero-trigger-width);
-    height: var(--ant-layout-zero-trigger-height);
-    color: var(--ant-layout-trigger-color);
-    font-size: var(--ant-font-size-xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--ant-layout-sider-bg);
-    border-radius: 0 var(--ant-border-radius-lg) var(--ant-border-radius-lg) 0;
-    cursor: pointer;
-    transition: background var(--ant-motion-duration-slow) ease;
+  position: absolute;
+  top: var(--ant-layout-header-height);
+  inset-inline-end: calc(var(--ant-layout-zero-trigger-width) * -1);
+  z-index: 1;
+  width: var(--ant-layout-zero-trigger-width);
+  height: var(--ant-layout-zero-trigger-height);
+  color: var(--ant-layout-trigger-color);
+  font-size: var(--ant-font-size-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ant-layout-sider-bg);
+  border-radius: 0 var(--ant-border-radius-lg) var(--ant-border-radius-lg) 0;
+  cursor: pointer;
+  transition: background var(--ant-motion-duration-slow) ease;
 }
-

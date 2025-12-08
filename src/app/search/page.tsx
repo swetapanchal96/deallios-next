@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Skeleton, Box, Pagination } from "@mui/material";
 import axios from "axios";
 import { Button } from "antd";
@@ -8,9 +8,6 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { apiUrl } from "@/config";
 
-/* ------------------------------------------------------
-   🔰 TYPES
--------------------------------------------------------*/
 interface Vendor {
     latitude: number | null;
     longitude: number | null;
@@ -49,11 +46,7 @@ interface SubCategory {
     strSlugName: string;
     strSubCategoryName: string;
 }
-
-/* ------------------------------------------------------
-   🔰 COMPONENT
--------------------------------------------------------*/
-export default function SearchResults() {
+function SearchResults() {
     const [loading, setLoading] = useState<boolean>(true);
     const [stores, setStores] = useState<DealStore[]>([]);
     const [cities, setCities] = useState<City[]>([]);
@@ -304,5 +297,14 @@ export default function SearchResults() {
                 )}
             </div>
         </section>
+    );
+}
+
+
+export default function SearchPage() {
+    return (
+        <Suspense fallback={<div>Loading search...</div>}>
+            <SearchResults />
+        </Suspense>
     );
 }
