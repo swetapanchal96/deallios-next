@@ -115,6 +115,8 @@ const EditDeal: React.FC<VoucherInstructionProps> = ({onNext, onPrevious}) => {
                 (image, index) => (
                   <div key={index}>
                     <Image
+                    width={300}
+                    height={300}
                       src={ image.photo || placeholderImage}
                       alt={`Product ${index + 1}`}
                       style={{ width: "100%", objectFit: "cover", borderRadius: "10px" }}

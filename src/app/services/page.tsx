@@ -128,7 +128,7 @@ export default function Services() {
           </p>
           <p>Deallios is the only location to post offers currently.</p>
 
-          <a href="/reseller" className="join-btn mb-1">
+          <a href="/reseller/reseller_register" className="join-btn mb-1">
             Join Us
           </a>
         </div>
