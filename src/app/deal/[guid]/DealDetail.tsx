@@ -354,90 +354,193 @@ export default function DealDetail({ guid }: { guid: string }) {
                 const regularPrice =
                   store.options[0]?.regular_price || null;
                 const dealPrice = store.options[0]?.pricecut_price || null;
+
                 return (
-                  <div
-                    key={store.Deals_id}
-                    className="col-xl-4 col-sm-6 custom-card-block"
-                  >
+                  // <div
+                  //   key={store.Deals_id}
+                  //   className="col-xl-4 col-sm-6 custom-card-block"
+                  // >
+                  //   <div className="custom-card border rounded shadow-sm overflow-hidden">
+                  //     <div className="position-relative">
+                  //       <Link
+                  //         href={`/deal/${store.GUID}`}
+                  //         title={store.deals_slug}
+                  //         onClick={() => router.push(`/deal/${store.GUID}`)}
+                  //       >
+                  //         <img
+                  //           className="img-fluid w-100"
+                  //           src={
+                  //             store.images[0]?.photo ||
+                  //             "/images/placeholder.png"
+                  //           }
+                  //           alt={store.business_type}
+                  //           style={{ height: "185px", objectFit: "cover" }}
+                  //         />
+                  //       </Link>
+                  //     </div>
+
+                  //     <div className="p-2">
+                  //       <div className="custom-card-body justify-content-between">
+                  //         <div className="d-flex align-items-center justify-content-between">
+                  //           <p
+                  //             className="brand mb-0"
+                  //             style={{ textTransform: "capitalize" }}
+                  //           >
+                  //             {store.business_type}
+                  //           </p>
+                  //           <div className="st-icon d-flex align-items-center gap-1">
+                  //             <i className="fa-solid fa-star"></i>
+                  //             <span>
+                  //               {(store.average_rating || 3.5).toFixed(1)}
+                  //             </span>
+                  //           </div>
+                  //         </div>
+                  //         <div className="d-flex align-items-center justify-content-between">
+                  //           <div className="">
+                  //             <h6>
+                  //               <Link
+                  //                 href={`/deal/${store.GUID}`}
+                  //                 className="fw-bold title-txt"
+                  //                 title={store.deals_slug}
+                  //                 onClick={() =>
+                  //                   router.push(`/deal/${store.GUID}`)
+                  //                 }
+                  //                 style={{ textTransform: "capitalize" }}
+                  //               >
+                  //                 {store.main_title}
+                  //               </Link>
+                  //             </h6>
+                  //             <p
+                  //               className="address"
+                  //               style={{ textTransform: "capitalize" }}
+                  //             >
+                  //               {store.vendor?.vendoraddress}
+                  //             </p>
+                  //           </div>
+                  //           <div className="">
+                  //             {/* {distance && (
+                  //                   <div className="deal-location">
+                  //                     <i className="fa-solid fa-location-dot icon-margin"></i>{" "}
+                  //                     {distance}
+                  //                   </div>
+                  //                 )} */}
+                  //           </div>
+                  //         </div>
+                  //         {/* {discountPercentage !== null && (
+                  //               <span
+                  //                 className="badge position-absolute top-0 end-0 m-2"
+                  //                 style={{
+                  //                   backgroundColor: "#00ff00",
+                  //                   fontSize: "0.8rem",
+                  //                   color: "#000", // optional: to ensure text is readable
+                  //                 }}
+                  //               >
+                  //                 -{discountPercentage}%
+                  //               </span>
+                  //             )} */}
+                  //       </div>
+
+                  //       <div className="d-flex justify-content-between align-items-center gap-3">
+                  //         <div>
+                  //           <div className="d-flex align-items-center gap-2 mt-1">
+                  //             <span className="text-decoration-line-through fw-bold">
+                  //               ₹{store.options[0]?.pricecut_price || "N/A"}
+                  //             </span>
+
+                  //             {regularPrice && (
+                  //               <p
+                  //                 style={{ color: "green" }}
+                  //                 className="mb-0 fw-bold"
+                  //               >
+                  //                 ₹{regularPrice}
+                  //               </p>
+                  //             )}
+                  //           </div>
+
+                  //           {dealPrice && (
+                  //             <p
+                  //               style={{ color: "#7E40B2" }}
+                  //               className="mb-0 fw-bold fs-6"
+                  //             >
+                  //               ₹{dealPrice}
+                  //             </p>
+                  //           )}
+                  //         </div>
+                  //         <a
+                  //           href="#"
+                  //           className="btn btn-sm "
+                  //           style={{
+                  //             background: "#A36DB5",
+                  //             color: "white",
+                  //             fontWeight: "bold",
+                  //             padding: "6px 15px",
+                  //             fontSize: "0.9rem",
+                  //             textDecoration: "none",
+                  //             width: 100,
+                  //           }}
+                  //         >
+                  //           Get Offer
+                  //         </a>
+                  //       </div>
+
+                  //       {/* Button */}
+                  //     </div>
+                  //   </div>
+                  // </div>
+                  <div key={store.Deals_id} className="col-xl-4 col-sm-6 custom-card-block">
                     <div className="custom-card border rounded shadow-sm overflow-hidden">
                       <div className="position-relative">
-                        <Link
-                          href={`/deal/${store.GUID}`}
-                          title={store.deals_slug}
-                          onClick={() => router.push(`/deal/${store.GUID}`)}
-                        >
-                          <img
-                            className="img-fluid w-100"
-                            src={
-                              store.images[0]?.photo ||
-                              "/images/placeholder.png"
-                            }
-                            alt={store.business_type}
-                            style={{ height: "185px", objectFit: "cover" }}
-                          />
-                        </Link>
+
+                        <div className="deal-slide-card">
+                          <div className="card-image-container">
+                            <Link href={`/deal/${store.GUID}`} title={store.deals_slug}>
+                              <img
+                                src={
+                                  store.images[0]?.photo || "/images/placeholder.png"
+                                }
+                                alt={store.business_type}
+                                className="img-fluid"
+                              />
+                            </Link>
+                          </div>
+                        </div>
+
                       </div>
 
-                      <div className="p-2">
-                        <div className="custom-card-body justify-content-between">
-                          <div className="d-flex align-items-center justify-content-between">
-                            <p
-                              className="brand mb-0"
-                              style={{ textTransform: "capitalize" }}
-                            >
-                              {store.business_type}
-                            </p>
-                            <div className="st-icon d-flex align-items-center gap-1">
-                              <i className="fa-solid fa-star"></i>
-                              <span>
-                                {(store.average_rating || 3.5).toFixed(1)}
-                              </span>
-                            </div>
+                      {/* Add card content here - uncomment and adapt the commented JSX from original */}
+                      <div className="p-3">
+                        <div className="d-flex align-items-center justify-content-between mb-2">
+                          <p className="brand mb-0" style={{ textTransform: "capitalize" }}>
+                            {store.business_type}
+                          </p>
+                          <div className="st-icon d-flex align-items-center gap-1">
+                            <i className="fa-solid fa-star"></i>
+                            <span>{(store.average_rating || 3.5).toFixed(1)}</span>
                           </div>
-                          <div className="d-flex align-items-center justify-content-between">
-                            <div className="">
-                              <h6>
-                                <Link
-                                  href={`/deal/${store.GUID}`}
-                                  className="fw-bold title-txt"
-                                  title={store.deals_slug}
-                                  onClick={() =>
-                                    router.push(`/deal/${store.GUID}`)
-                                  }
-                                  style={{ textTransform: "capitalize" }}
-                                >
-                                  {store.main_title}
-                                </Link>
-                              </h6>
-                              <p
-                                className="address"
+                        </div>
+                        <div className="d-flex align-items-center justify-content-between">
+                          <div>
+                            <h6 className="mb-2">
+                              <Link
+                                href={`/deal/${store.GUID}`}
+                                className="fw-bold title-txt"
+                                title={store.deals_slug}
                                 style={{ textTransform: "capitalize" }}
                               >
-                                {store.vendor?.vendoraddress}
-                              </p>
-                            </div>
-                            <div className="">
-                              {/* {distance && (
-                                    <div className="deal-location">
-                                      <i className="fa-solid fa-location-dot icon-margin"></i>{" "}
-                                      {distance}
-                                    </div>
-                                  )} */}
-                            </div>
+                                {store.main_title}
+                              </Link>
+                            </h6>
+
+                            <p className="address mb-2" style={{ textTransform: "capitalize" }}>
+                              {store.vendor?.vendoraddress}
+                            </p>
+
                           </div>
-                          {/* {discountPercentage !== null && (
-                                <span
-                                  className="badge position-absolute top-0 end-0 m-2"
-                                  style={{
-                                    backgroundColor: "#00ff00",
-                                    fontSize: "0.8rem",
-                                    color: "#000", // optional: to ensure text is readable
-                                  }}
-                                >
-                                  -{discountPercentage}%
-                                </span>
-                              )} */}
+
+
+
                         </div>
+
 
                         <div className="d-flex justify-content-between align-items-center gap-3">
                           <div>
@@ -481,8 +584,6 @@ export default function DealDetail({ guid }: { guid: string }) {
                             Get Offer
                           </a>
                         </div>
-
-                        {/* Button */}
                       </div>
                     </div>
                   </div>

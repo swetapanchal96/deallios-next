@@ -198,14 +198,14 @@ function TopStores() {
                               {...sliderSettings}
                             >
                               {store.images.map((item: any, index: number) => (
-                                <div key={index} className="deal-slide-card">
-                                  <div className="card-image-container">
+                                <div key={index} className="deal-slide-card ">
+                                  <div className="card-image-container rounded">
                                     <img
                                       src={
                                         item.photo || "/images/placeholder.png"
                                       }
                                       alt={store.business_type}
-                                      className="img-fluid"
+                                      className="img-fluid "
                                     />
                                   </div>
                                 </div>
@@ -287,14 +287,14 @@ function TopStores() {
                               {store.vendor?.vendoraddress}
                             </p>
                           </div>
-                          {/* <div>
+                          <div>
                             {cardDistance && (
                               <div className="deal-location">
                                 <i className="fa-solid fa-location-dot icon-margin"></i>{" "}
                                 {cardDistance}
                               </div>
                             )}
-                          </div> */}
+                          </div>
                         </div>
                         {discountPercentage !== null && (
                           <span
